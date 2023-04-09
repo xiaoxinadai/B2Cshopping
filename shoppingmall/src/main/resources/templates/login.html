@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/login.css">
+    <title>Document</title>
 </head>
 <body>
-  <h1>hello world!!!1</h1>
+<div class="backgroundpic">
+    <div class="toplogin">
+        <form action="">
+            <div>
+                <!-- 输入框div -->
+                <div>
+                    <div>
+                        <input class="inputout topdistance" type="text" id="username" name="username" placeholder="请输入用户名"><br>
+                    </div>
+                    <div>
+                        <input class="inputout topandbottomdistance" type="password" id="password" name="password" placeholder="请输入密码"><br>
+                    </div>
+                    <div class="divcaptcha">
+                        <input class="inputcaptcha"><img class="imgdistance" src="/captcha" width="130px" height="48px">
+                    </div>
+                </div>
+                <div class="divbuttonlogin">
+                    <button class="buttonlogin">登录</button>
+                </div>
+            </div>
+        </form>
+        <div class="divregister">
+            <a class="aregister" href="">没有账号？立即注册</a>
+        </div>
+    </div>
+</div>
 </body>
 </html>

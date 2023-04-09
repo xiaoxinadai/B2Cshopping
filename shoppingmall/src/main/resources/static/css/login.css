@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.backgroundpic{
+    background-image: url('../images/loginbackground.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.toplogin{
+    width: 470px;
+    height: 418px;
+    background-color: white;
+    z-index: 2;
+    margin: 0 auto;
+    margin-top: 180px;
+}
+/* 用户名和密码的输入框设置 */
+.inputout{
+    width: 249px;
+    height: 38px;
+    margin-left: 110px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-indent: 5px;
+    border: none;
+    box-shadow: inset 0 -2px 0 rgba(0.1,0.1,0.1,0.1);
+}
+/* 输入框距离上边距的距离 */
+.topdistance{
+    margin-top: 40px;
+}
+.bottomdistance{
+    margin-bottom: 20px;
+}
+.topandbottomdistance{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/* 登录按钮样式 */
+.divbuttonlogin{
+    text-align: center;
+}
+.buttonlogin{
+    width: 249px;
+    height: 36px;
+    background-color: cornflowerblue;
+    border: none;
+    color: white;
+    font-size: 17px;
+    display: inline-block;
+    cursor: pointer;
+}
+.divcaptcha {
+    display: flex;
+    align-content: center;
+}
+/* 验证码输入框 */
+.inputcaptcha{
+    width: 110px;
+    height: 48px;
+    font-size: 16px;
+    margin-left: 110px;
+    margin-bottom: 36px;
+    border-radius: 5px;
+    text-indent: 5px;
+    border-color: aliceblue;
+}
+.imgdistance{
+    margin-left: 5px;
+    cursor: pointer;
+}
+/* 注册按钮样式设置 */
+.divregister{
+    margin-top: 30px;
+    text-align: center;
+}
+.aregister{
+    display: inline-block;
+}
