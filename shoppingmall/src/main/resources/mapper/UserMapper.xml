@@ -17,4 +17,10 @@
         from t_user
         where username = #{registerUsername}
     </select>
+
+    <select id="queryByLoginUsername" resultType="user">
+        select username,password
+        from t_user
+        where username = #{loginUsername}
+    </select>
 </mapper>

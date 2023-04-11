@@ -12,4 +12,6 @@ public interface UserMapper {
     Integer saveRegisterUser(User user);
 
     List<User> checkUsername(String registerUsername);
+
+    List<User> queryByLoginUsername(String loginUsername);
 }

@@ -28,9 +28,12 @@ public class UserController {
      * 跳转登录页面
      */
     @GetMapping("/login")
-    public ModelAndView loginTest(@ModelAttribute("captchaError") String captchaError){
+    public ModelAndView loginTest(
+                                    @ModelAttribute("captchaError") String captchaError,
+                                    @ModelAttribute("checkLoginError") String checkLoginError){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("captchaError",captchaError);
+        modelAndView.addObject("checkLoginError",checkLoginError);
         modelAndView.setViewName("login");
         return modelAndView;
     }

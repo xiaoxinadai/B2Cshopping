@@ -24,16 +24,31 @@ public class UserServiceImpl implements UserService {
     public ModelAndView checkLogin(User user, HttpSession httpSession, HttpServletRequest httpServletRequest) {
 
         ModelAndView modelAndView = new ModelAndView();
+
+        String loginUsername = user.getUsername();
+        String loginPassword = user.getPassword();
+        List<User> userList = userMapper.queryByLoginUsername(loginUsername);
         //验证码判断
         if (!CaptchaUtil.ver(user.getCaptcha(),httpServletRequest)){
             //清空session中的验证码
             CaptchaUtil.clear(httpServletRequest);
             modelAndView.addObject("captchaError","验证码有误!");
+            //校验用户名和密码
+            //根据用户名去查询数据库中的用户名和密码，然后进行密码的比较
+            if (userList.size() == 0 || !loginPassword.equals(userList.get(0).getPassword())){
+                modelAndView.addObject("checkLoginError","请检测用户名和密码;");
+            }
             modelAndView.setViewName("redirect:/user/login");
             return modelAndView;
         }
-        modelAndView.setViewName("login");
-        return modelAndView;
+        if (userList.size()>0 && loginPassword.equals(userList.get(0).getPassword())){
+            modelAndView.setViewName("homePage");
+            return modelAndView;
+        }else {
+            modelAndView.addObject("checkLoginError","请检测用户名和密码;");
+            modelAndView.setViewName("redirect:/user/login");
+            return modelAndView;
+        }
     }
 
     @Override
