@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/register.css">
+    <script type="text/javascript" src="/js/jquery/jquery-3.6.4.js"></script>
+    <script type="text/javascript" src="/js/register.js"></script>
+    <title>注册</title>
+</head>
+<body>
+<div class="backgroundpic">
+    <div class="toplogin">
+        <form method="post" action="/user/checkRegister">
+            <div>
+                <!-- 输入框div -->
+                <div>
+                    <div>
+                        <input class="inputout topdistance" type="text" id="username" name="username" placeholder="用户名"><br>
+                    </div>
+                    <div>
+                        <input class="inputout middistance" type="password" id="password" name="password" placeholder="密码"><br>
+                    </div>
+                    <div>
+                        <input class="inputout middistance" type="password" id="passwordAgain" placeholder="再次输入密码"><br>
+                    </div>
+                    <div>
+                        <input class="inputout topandbottomdistance" type="text" id="phone" name="phone" placeholder="手机号"><br>
+                    </div>
+                    <div class="divcaptcha">
+                        <input class="inputcaptcha" name="captcha"><img class="imgdistance" src="/user/captcha" width="130px" height="48px">
+                    </div>
+                </div>
+                <!--                验证码错误信息-->
+                <div class="divCaptchaError">
+                    <span class="spanCaptchaError" id="captchaid" th:text="${registerError}"></span>
+                </div>
+                <div class="divbuttonlogin">
+                    <button type="submit" class="buttonlogin">注册</button>
+                </div>
+            </div>
+        </form>
+        <!-- <div class="divregister">
+            <a class="aregister" href="">没有账号？立即注册</a>
+        </div> -->
+    </div>
+</div>
+</body>
+</html>
