@@ -1,2 +1,4 @@
 # B2Cshopping
-毕设商城项目
+购物商城项目
+
+Spring Boot+MyBatis+Thymeleaf+LayUI+JQuery
