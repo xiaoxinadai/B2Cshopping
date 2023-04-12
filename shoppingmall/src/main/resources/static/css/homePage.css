@@ -1,0 +1,61 @@
+/* 让li标签靠右 */
+.liright{
+    float: right;
+    margin-right: 30px;
+}
+/* 设置第一层筛选的位置居中 */
+.divfilterflex{
+    display: flex;
+    justify-content: center;
+}
+/* 设置商品展示的两边边距 */
+.divbothsidesdistance{
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+/* 商品展示框的css样式 */
+.product-display {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+}
+
+.product-display img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.product-display h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.product-display p {
+    margin-bottom: 5px;
+}
+
+.product-display span {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.product-display button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
