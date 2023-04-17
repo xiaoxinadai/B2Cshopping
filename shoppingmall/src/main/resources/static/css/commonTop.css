@@ -1,0 +1,5 @@
+/* 让li标签靠右 */
+.liright{
+    float: right;
+    margin-right: 30px;
+}

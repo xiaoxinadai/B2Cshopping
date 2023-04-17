@@ -1,0 +1,123 @@
+.mid-content{
+    height: 587px;
+}
+
+.div-only-flex{
+    display: flex;
+}
+/* 设置中间内容区域距离两边的距离 */
+.div-mid-distance{
+    margin-left: 160px;
+    margin-right: 160px;
+}
+
+/* 中间内容区域距离最顶部的距离 */
+.div-mid-content-top-distance{
+    margin-top: 50px;
+}
+/* 数量输入框的大小 */
+.input-product-number{
+    width: 37px;
+    height: 23px;
+}
+/* 设置全选框的大小 */
+.div-all-chose-size{
+    width: 120px;
+    height: 46.4px;
+}
+/* 设置商品信息框的大小 */
+.div-product-information-size{
+    width: 464px;
+    height: 46.4px;
+}
+/* 设置单价栏的大小 */
+.div-price-size{
+    width: 150px;
+    height: 46.4px;
+}
+/* 设置数量框的大小 */
+.div-mount-size{
+    width: 160px;
+    height: 46.4px;
+}
+/* 设置小计框的大小 */
+.div-total-size{
+    width: 144px;
+    height: 46.4px;
+}
+/* 设置操作框的大小 */
+.div-caozuo-size{
+    width: 50px;
+    height: 46.4px;
+}
+/* 设置这些标题的文字居中 */
+.p-font-mid{
+    margin-top: auto;
+    margin-left: auto;
+}
+/* 内容居中 */
+.div-content-mid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* 内容居左 */
+.div-content-left{
+    display: flex;
+    align-items: center;
+}
+/* 内容居右 */
+.div-content-right{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+/* 下方内容区域设置 */
+/* 总体距离上方的距离设置 */
+.div-last-content-top-distance{
+    margin-top: 35px;
+}
+
+/* 设置立即结算按钮的样式 */
+.div-end-settle-acounts-style{
+    width: 140px;
+    height: 60px;
+    margin-left: 30px;
+    font-size: 20px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+/* 商品内容区域大小 */
+.div-content-product-cart-size{
+    height: 150px;
+}
+
+/* 设置图片框的大小位置 */
+.div-img-product-size{
+    margin-left: 10px;
+    width: 110px;
+}
+/* 商品信息框大小 */
+.div-product-inform-wid-size{
+    width: 464px;
+}
+/* 设置单价框宽度大小 */
+.div-price-wid-size{
+    width: 150px;
+}
+/* 设置数量框宽度大小 */
+.div-mount-wid-size{
+    width: 160px;
+}
+/* 设置小计框宽度大小 */
+.div-total-wid-size{
+    width: 144px;
+}
+/* 设置操作框宽度大小 */
+.div-caozuo-wid-size{
+    width: 50px;
+}
+

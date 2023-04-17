@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
             return modelAndView;
         }
         if (userList.size()>0 && loginPassword.equals(userList.get(0).getPassword())){
-            modelAndView.setViewName("homePage");
+            modelAndView.setViewName("redirect:/homepage/view");
             return modelAndView;
         }else {
             modelAndView.addObject("checkLoginError","请检测用户名和密码;");

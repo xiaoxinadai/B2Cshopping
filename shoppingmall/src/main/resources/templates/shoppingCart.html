@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/layui/css/layui.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/shoppingCart.css">
+    <link rel="stylesheet" type="text/css" href="/css/commonTop.css">
+    <link rel="stylesheet" type="text/css" href="/css/commonBottomBar.css">
+    <title>首页</title>
+</head>
+
+<body>
+<!-- 公共顶部导航栏 -->
+<ul class="layui-nav layui-bg-cyan">
+    <li class="layui-nav-item"><a href="">飞跃商时</a></li>
+    <li class="layui-nav-item"><a href="">商品</a></li>
+    <li class="layui-nav-item"><a href="">购物车</a></li>
+    <li class="layui-nav-item">
+        <a href="javascript:;">解决方案</a>
+        <dl class="layui-nav-child">
+            <dd><a href="">移动模块</a></dd>
+            <dd><a href="">后台模版</a></dd>
+            <dd><a href="">电商平台</a></dd>
+        </dl>
+    </li>
+    <li class="layui-nav-item"><a href="">帮助</a></li>
+    <li class="layui-nav-item liright" lay-unselect="">
+        <a href="javascript:;"><img src="" class="layui-nav-img"></a>
+        <dl class="layui-nav-child">
+            <dd><a href="javascript:;">个人中心</a></dd>
+            <dd><a href="javascript:;">购物车</a></dd>
+            <hr>
+            <dd style="text-align: center;"><a href="">退出</a></dd>
+        </dl>
+    </li>
+</ul>
+<!-- 中间内容区域 -->
+<div class="mid-content div-mid-content-top-distance">
+    <!-- 设置距离两边距离 -->
+    <div class="div-mid-distance">
+        <div class="div-only-flex">
+            <!-- 顶部目录 -->
+            <input type="checkbox">
+            <div class="div-content-left div-all-chose-size">
+                <p style="margin-left: 5px;">全选</p>
+            </div>
+            <div class="div-content-mid div-product-information-size">
+                <p class="">商品信息</p>
+            </div>
+            <div class="div-content-mid div-price-size">
+                <p class="">单价（元）</p>
+            </div>
+            <div class="div-content-mid div-mount-size">
+                <p class="">数量</p>
+            </div>
+            <div class="div-content-mid div-total-size">
+                <p class="">小计（元）</p>
+            </div>
+            <div class="div-content-mid div-caozuo-size">
+                <p class="">操作</p>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <!-- 内容区域 -->
+            <div class="div-only-flex div-last-content-top-distance div-content-product-cart-size">
+                <div class="div-content-mid">
+                    <input type="checkbox">
+                </div>
+                <div class="div-content-mid div-img-product-size">
+                    <a><img src="" alt="图片不见了"></a>
+                </div>
+                <div class="div-content-mid div-product-inform-wid-size">
+                    <p>名称</p>
+                    <span>规格</span>
+                    <p>规格信息如XXL</p>
+                </div>
+                <div class="div-content-mid div-price-wid-size">
+                    <span>￥900</span>
+                </div>
+                <div class="div-content-left div-mount-wid-size">
+                    <div>减</div>
+                    <input class="input-product-number" type="text" value="1" style="text-align: center;">
+                    <div>加</div>
+                </div>
+                <div class="div-content-mid div-total-wid-size">
+                    <span>小计总价</span>
+                </div>
+                <div class="div-content-mid div-caozuo-wid-size">
+                    <!-- 删除按钮 -->
+                    <img src="" alt="图片不见了">
+                </div>
+            </div>
+            <!-- 结算按钮区域 -->
+            <div class="div-content-right div-last-content-top-distance">
+                <div class="div-end-settle-acounts-style div-content-mid">立即结算</div>
+                <div>
+                    <span>商品总价：</span>
+                    <span>￥900</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 公共底部栏 -->
+<footer>
+    <!-- Add a container to center the content -->
+    <div class="container">
+        <!-- Add some text or links to the footer -->
+        <p>Copyright © 2023 Shopping Mall.
+            <!-- Add some styling to the footer -->
+    </div>
+</footer>
+
+<script src="/static/layui/layui.js"></script>
+</body>
+
+</html>

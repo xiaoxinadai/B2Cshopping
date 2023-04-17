@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/layui/css/layui.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/detail.css" />
+    <link rel="stylesheet" type="text/css" href="/css/commonTop.css">
+    <link rel="stylesheet" type="text/css" href="/css/commonBottomBar.css">
+    <title>首页</title>
+</head>
+
+<body>
+<!-- 公共顶部导航栏 -->
+<ul class="layui-nav layui-bg-cyan">
+    <li class="layui-nav-item"><a href="">飞跃商时</a></li>
+    <li class="layui-nav-item"><a href="">商品</a></li>
+    <li class="layui-nav-item"><a href="">购物车</a></li>
+    <li class="layui-nav-item">
+        <a href="javascript:;">解决方案</a>
+        <dl class="layui-nav-child">
+            <dd><a href="">移动模块</a></dd>
+            <dd><a href="">后台模版</a></dd>
+            <dd><a href="">电商平台</a></dd>
+        </dl>
+    </li>
+    <li class="layui-nav-item"><a href="">帮助</a></li>
+    <li class="layui-nav-item liright" lay-unselect="">
+        <a href="javascript:;"><img src="" class="layui-nav-img"></a>
+        <dl class="layui-nav-child">
+            <dd><a href="javascript:;">个人中心</a></dd>
+            <dd><a href="javascript:;">购物车</a></dd>
+            <hr>
+            <dd style="text-align: center;"><a href="">退出</a></dd>
+        </dl>
+    </li>
+</ul>
+<!-- 中间内容区域 -->
+<div class="mid-content">
+    <!-- 两边边距 -->
+    <div class="div-bothsides-distance div-only-flex">
+        <div>
+            <!-- 展示商品图片 -->
+            <div>
+                <img class="img-size img-position" src="/images/detail-show.jpg" alt="图片不见了">
+            </div>
+        </div>
+        <div class="div-img-content-bothsides-distance">
+            <!-- 商品信息 -->
+            <div>
+                <!-- 商品详情文字信息展示布局 -->
+                <!-- 1、首先，显示名字
+                2、一段描述信息，描述商品的信息
+                3、价格布局
+                4、规格选择
+                5、购买数量
+                6、加入购物车 -->
+                <div class="div-product-name-distance">
+                    <p>商品名称商品名称</p>
+                </div>
+                <div class="div-name-describe">
+                    <p>商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述</p>
+                </div>
+                <hr>
+                <!-- 价格相关的内容 -->
+                <div class="div-only-flex">
+                    <p>价格</p>
+                    <div class="div-title-left-distance">
+                        <p>￥900</p>
+                    </div>
+                </div>
+                <hr>
+                <!-- 规格选择内容 -->
+                <div class="div-chose-distance div-only-flex">
+                    <p>规格</p>
+                    <div class="div-title-left-distance">
+                        <p class="p-guigge">XL</p>
+                    </div>
+                </div>
+                <!-- 选择数量 -->
+                <div class="div-submit-chose-distance div-only-flex">
+                    <div>
+                        <input type="number" class="div-mount-size" value="1" style="text-align: center;">
+                    </div>
+                    <!-- <div>
+                        <div><img class="img-jiajian-size" src="./static/images/shangjiantou.jpg" alt="图片不见了" ></div>
+                        <div><img class="img-jiajian-size" src="./static/images/xiajiantou.jpg" alt="图片不见了" ></div>
+                    </div> -->
+                    <!-- 添加到购物车按钮 -->
+                    <div class="div-only-flex div-cart-left-distance">
+                        <p style="margin: auto;"><a class="a-font-size">加入购物车</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 公共底部栏 -->
+<footer>
+    <!-- Add a container to center the content -->
+    <div class="container">
+        <!-- Add some text or links to the footer -->
+        <p>Copyright © 2023 Shopping Mall.
+            <!-- Add some styling to the footer -->
+    </div>
+</footer>
+
+<script src="/static/layui/layui.js"></script>
+</body>
+
+</html>

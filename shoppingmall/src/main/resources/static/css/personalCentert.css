@@ -1,0 +1,72 @@
+/* 设置顶部白色区域的距离两边的距离 */
+.div-title-distance-top-wht{
+    margin-left: 160px;
+    margin-right: 159px;
+    height: 40px;
+}
+/* div实现flex布局 */
+.div-only-flex{
+    display: flex;
+}
+/* 设置div标签内容水平居中 */
+.div-content-mid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* 内容居左 */
+.div-content-left{
+    display: flex;
+    align-items: center;
+}
+/* 给span标签加个样式 */
+.span-jiange{
+    height: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+/* 设置左边目录的大小 */
+.div-left-title-size{
+    width: 182px;
+    height: 561px;
+    margin-left: 170px;
+    border: 1px solid #e4e4e4;
+}
+/* 设置右边内容框的大小 */
+.div-bottom-right-content-size{
+    width: 942px;
+    height: 553px;
+    border: 1px solid #e4e4e4;
+    margin-left: 50px;
+}
+/* 头像所在div的大小 */
+.div-head-pic-size{
+    height: 140px;
+    width: 140px;
+    margin-left: 21px;
+    border-radius: 50%;
+    background-color: black;
+}
+/* 头像与用户名区域的大小 */
+.div-username-img-head-pic-size{
+    height: 170px;
+    background-color: red;
+}
+/* 设置左边目录分割线的样式 */
+.hr-left-title{
+    height: 1px;
+    background-color: crimson;
+    border: none;
+}
+/* 设置中间内容的大小 */
+.mid-content-size{
+    height: 637px;
+}
+
+
+
+
+

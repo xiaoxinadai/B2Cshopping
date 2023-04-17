@@ -1,0 +1,76 @@
+.mid-content{
+    height: 637px;
+}
+.div-bothsides-distance{
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+/* 设置图片大小 */
+.img-size{
+    width: 320px;
+    height: 310px;
+}
+/* 图片位置 */
+.img-position{
+    margin-top: 80px;
+    margin-left: 30px;
+}
+
+/* 使一个div下的元素形成flex布局 */
+.div-only-flex{
+    display: flex;
+}
+/* 设置商品名称距离顶部的距离 */
+.div-product-name-distance{
+    margin-top: 85px;
+}
+
+/* 设置图片与文字信息两个模块之间的距离 */
+.div-img-content-bothsides-distance{
+    margin-left: 80px;
+}
+
+/* 设置描述与名称之间的距离 */
+.div-name-describe{
+    margin-top: 20px;
+}
+/* 设置加减箭头的大小 */
+.img-jiajian-size{
+    width: 20px;
+    height: 20px;
+}
+/* 设置选择数量div距离上面的距离 */
+.div-chose-distance{
+    margin-top: 46px;
+}
+.div-submit-chose-distance{
+    margin-top: 46px;
+    margin-left: 48px;
+}
+/* 设置数量框的大小 */
+.div-mount-size{
+    width: 49px;
+    height: 39px;
+}
+/* 购物车按钮设置 */
+.div-cart-left-distance{
+    margin-left: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+/* 设置文字大小及选择框大小 */
+.a-font-size{
+    font-size: 30px;
+    color: red;
+}
+/* 给规格加样式 */
+.p-guigge{
+    margin-left: 5px;
+    border: 1px solid black;
+}
+
+/* 内容距离标题统一20px */
+.div-title-left-distance{
+    margin-left: 20px;
+}
