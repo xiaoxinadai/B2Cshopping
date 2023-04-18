@@ -81,14 +81,14 @@
                 <!-- 选择数量 -->
                 <div class="div-submit-chose-distance div-only-flex">
                     <div>
-                        <input type="number" class="div-mount-size" value="1" style="text-align: center;">
+                        <input id="product-amount" type="number" class="div-mount-size" value="1" style="text-align: center;">
                     </div>
                     <!-- <div>
                         <div><img class="img-jiajian-size" src="./static/images/shangjiantou.jpg" alt="图片不见了" ></div>
                         <div><img class="img-jiajian-size" src="./static/images/xiajiantou.jpg" alt="图片不见了" ></div>
                     </div> -->
                     <!-- 添加到购物车按钮 -->
-                    <div class="div-only-flex div-cart-left-distance">
+                    <div id="cart-button" class="div-only-flex div-cart-left-distance">
                         <p style="margin: auto;"><a class="a-font-size">加入购物车</a></p>
                     </div>
                 </div>
@@ -106,7 +106,9 @@
     </div>
 </footer>
 
-<script src="/layui/layui.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery-3.6.4.js"></script>
+<script src="/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/detail.js" type="text/javascript" charset="utf-8"></script>
 </body>
 
 </html>
