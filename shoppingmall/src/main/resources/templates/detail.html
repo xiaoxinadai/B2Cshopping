@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/static/layui/css/layui.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/detail.css" />
+    <link href="/layui/css/layui.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/commonTop.css">
     <link rel="stylesheet" type="text/css" href="/css/commonBottomBar.css">
-    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="/css/detail.css" />
+    <title>个人中心</title>
 </head>
 
 <body>
@@ -43,7 +43,7 @@
         <div>
             <!-- 展示商品图片 -->
             <div>
-                <img class="img-size img-position" src="/images/detail-show.jpg" alt="图片不见了">
+                <img class="img-size img-position" th:src="${productMessageById.imgLocation}" alt="图片不见了">
             </div>
         </div>
         <div class="div-img-content-bothsides-distance">
@@ -57,17 +57,17 @@
                 5、购买数量
                 6、加入购物车 -->
                 <div class="div-product-name-distance">
-                    <p>商品名称商品名称</p>
+                    <p th:text="${productMessageById.productName}"></p>
                 </div>
                 <div class="div-name-describe">
-                    <p>商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述</p>
+                    <p th:text="${productMessageById.productDescription}"></p>
                 </div>
                 <hr>
                 <!-- 价格相关的内容 -->
                 <div class="div-only-flex">
                     <p>价格</p>
                     <div class="div-title-left-distance">
-                        <p>￥900</p>
+                        <p th:text="'￥'+${productMessageById.productPrice}"></p>
                     </div>
                 </div>
                 <hr>
@@ -106,7 +106,7 @@
     </div>
 </footer>
 
-<script src="/static/layui/layui.js"></script>
+<script src="/layui/layui.js"></script>
 </body>
 
 </html>
