@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/static/layui/css/layui.css" rel="stylesheet">
+    <link href="/layui/css/layui.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/shoppingCart.css">
     <link rel="stylesheet" type="text/css" href="/css/commonTop.css">
     <link rel="stylesheet" type="text/css" href="/css/commonBottomBar.css">
@@ -65,7 +65,7 @@
         <hr>
         <div>
             <!-- 内容区域 -->
-            <div class="div-only-flex div-last-content-top-distance div-content-product-cart-size">
+            <div class="div-only-flex div-last-content-top-distance div-content-product-cart-size" th:each="shoppingCartMessage:${shoppingCartMessageList}">
                 <div class="div-content-mid">
                     <input type="checkbox">
                 </div>
@@ -74,16 +74,14 @@
                 </div>
                 <div class="div-content-mid div-product-inform-wid-size">
                     <p>名称</p>
-                    <span>规格</span>
-                    <p>规格信息如XXL</p>
+<!--                    <span>规格</span>-->
+                    <p th:text="'规格&nbsp&nbsp&nbsp'+${shoppingCartMessage.productSpec}"></p>
                 </div>
                 <div class="div-content-mid div-price-wid-size">
                     <span>￥900</span>
                 </div>
                 <div class="div-content-left div-mount-wid-size">
-                    <div>减</div>
-                    <input class="input-product-number" type="text" value="1" style="text-align: center;">
-                    <div>加</div>
+                    <input th:value="${shoppingCartMessage.productAmount}" step="1"  min="0" onkeyup="this.value= this.value.match(/\d+(\.\d{0,2})?/) ? this.value.match(/\d+(\.\d{0,2})?/)[0] : ''" class="input-product-number" type="number" value="1" style="text-align: center;">
                 </div>
                 <div class="div-content-mid div-total-wid-size">
                     <span>小计总价</span>
@@ -107,14 +105,16 @@
 <!-- 公共底部栏 -->
 <footer>
     <!-- Add a container to center the content -->
-    <div class="container">
+    <div id="myDiv" class="container">
         <!-- Add some text or links to the footer -->
         <p>Copyright © 2023 Shopping Mall.
             <!-- Add some styling to the footer -->
     </div>
 </footer>
 
-<script src="/static/layui/layui.js"></script>
+<script src="/layui/layui.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery-3.6.4.js"></script>
+<script src="/js/commonbottom.js"></script>
 </body>
 
 </html>

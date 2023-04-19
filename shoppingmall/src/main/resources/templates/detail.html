@@ -74,14 +74,31 @@
                 <!-- 规格选择内容 -->
                 <div class="div-chose-distance div-only-flex">
                     <p>规格</p>
-                    <div class="div-title-left-distance">
-                        <p class="p-guigge">XL</p>
+                    <div class="div-title-left-distance div-only-flex">
+                        <div class="div-guige">
+                            <p class="p-guigge">XS</p>
+                        </div>
+                        <div class="div-guige">
+                            <p class="p-guigge">S</p>
+                        </div>
+                        <div class="div-guige">
+                            <p class="p-guigge">M</p>
+                        </div>
+                        <div class="div-guige">
+                            <p class="p-guigge">L</p>
+                        </div>
+                        <div class="div-guige">
+                            <p class="p-guigge">XL</p>
+                        </div>
+                        <div class="div-guige">
+                            <p class="p-guigge">XXL</p>
+                        </div>
                     </div>
                 </div>
                 <!-- 选择数量 -->
                 <div class="div-submit-chose-distance div-only-flex">
                     <div>
-                        <input id="product-amount" type="number" class="div-mount-size" value="1" style="text-align: center;">
+                        <input step="1"  min="0" onkeyup="this.value= this.value.match(/\d+(\.\d{0,2})?/) ? this.value.match(/\d+(\.\d{0,2})?/)[0] : ''" id="product-amount" type="number" class="div-mount-size" value="1">
                     </div>
                     <!-- <div>
                         <div><img class="img-jiajian-size" src="./static/images/shangjiantou.jpg" alt="图片不见了" ></div>
@@ -109,6 +126,10 @@
 <script type="text/javascript" src="/js/jquery/jquery-3.6.4.js"></script>
 <script src="/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 <script src="/js/detail.js" type="text/javascript" charset="utf-8"></script>
+<script th:inline="javascript">
+    let productId = [[${productMessageById.id}]];
+    console.log(productId);
+</script>
 </body>
 
 </html>

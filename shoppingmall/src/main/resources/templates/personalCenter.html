@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/static/layui/css/layui.css" rel="stylesheet">
+    <link href="/layui/css/layui.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/commonTop.css">
     <link rel="stylesheet" type="text/css" href="/css/commonBottomBar.css">
     <link rel="stylesheet" type="text/css" href="/css/personalCentert.css">
@@ -51,8 +51,8 @@
         <div class="div-left-title-size">
             <!-- 头像与用户名区域 -->
             <div class="div-username-img-head-pic-size">
-                <div class="div-head-pic-size">
-                    <img src="" alt="">
+                <div class="">
+                    <img class="div-head-pic-size" src="" alt="图片不见了">
                 </div>
                 <div>用户名</div>
             </div>
@@ -74,13 +74,15 @@
 <!-- 公共底部栏 -->
 <footer>
     <!-- Add a container to center the content -->
-    <div class="container">
+    <div id="myDiv" class="container">
         <!-- Add some text or links to the footer -->
         <p>Copyright © 2023 Shopping Mall.
     </div>
 </footer>
 
-<script src="/static/layui/layui.js"></script>
+<script src="/layui/layui.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery-3.6.4.js"></script>
+<script src="/js/commonbottom.js"></script>
 </body>
 
 </html>

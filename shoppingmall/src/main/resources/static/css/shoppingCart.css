@@ -1,5 +1,8 @@
 .mid-content{
     height: 587px;
+    margin-bottom: 57px;
+    overflow: scroll;
+    overflow-x:hidden;
 }
 
 .div-only-flex{
@@ -13,7 +16,8 @@
 
 /* 中间内容区域距离最顶部的距离 */
 .div-mid-content-top-distance{
-    margin-top: 50px;
+    /*margin-top: 50px;*/
+    margin-top: 45px;
 }
 /* 数量输入框的大小 */
 .input-product-number{

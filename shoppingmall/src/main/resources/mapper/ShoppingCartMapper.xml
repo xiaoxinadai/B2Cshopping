@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="com.example.mapper.ShoppingCartMapper">
+<!--    <resultMap id="loginDao" type="com.example.model.Product">-->
+<!--    </resultMap>-->
+
+    <insert id="savaMessageToCart">
+        insert into t_cart(product_id,product_spec,product_amount)
+        values(#{productId},#{productSpec},#{amount})
+    </insert>
+    
+    <select id="findShoppingCartMessage" resultType="shoppingCart">
+        select *
+        from t_cart
+    </select>
+</mapper>

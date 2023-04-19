@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/layui/css/layui.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/commonBottomBar.css">
     <link rel="stylesheet" type="text/css" href="/css/homePage.css">
     <title>首页</title>
 </head>
@@ -53,7 +54,7 @@
         <div class="layui-tab-content divbothsidesdistance">
             <div class="layui-tab-item layui-show">
                 <div class="product-display" th:each="allproduct : ${allProductList}">
-                    <a th:href="'http://localhost:8080/product/detail?id='+${allproduct.id}"  href="http://localhost:8080/user/login"><img th:src="${allproduct.imgLocation}" alt="图片不见了"></a>
+                    <a th:href="'http://localhost:8080/product/detail?id='+${allproduct.id}"><img th:src="${allproduct.imgLocation}" alt="图片不见了"></a>
                     <h3 th:text="${allproduct.productName}"></h3>
                     <p th:text="${allproduct.productDescription}"></p>
                     <span th:text="${allproduct.productPrice}"></span>
@@ -61,38 +62,38 @@
                 </div>
             </div>
             <div class="layui-tab-item">
-                <div class="product-display">
-                    <img src="/images/product3.jpg" alt="图片不见了">
-                    <h3>商品名称2</h3>
-                    <p>商品描述</p>
-                    <span>商品价格</span>
+                <div class="product-display" th:each="manproduct : ${manProductList}">
+                    <a th:href="'http://localhost:8080/product/detail?id='+${manproduct.id}"><img th:src="${manproduct.imgLocation}" alt="图片不见了"></a>
+                    <h3 th:text="${manproduct.productName}"></h3>
+                    <p th:text="${manproduct.productDescription}"></p>
+                    <span th:text="${manproduct.productPrice}"></span>
                     <button>加入购物车</button>
                 </div>
             </div>
             <div class="layui-tab-item">
-                <div class="product-display">
-                    <img src="" alt="图片不见了">
-                    <h3>商品名称3</h3>
-                    <p>商品描述</p>
-                    <span>商品价格</span>
+                <div class="product-display" th:each="womanproduct : ${womanProductList}">
+                    <a th:href="'http://localhost:8080/product/detail?id='+${womanproduct.id}"><img th:src="${womanproduct.imgLocation}" alt="图片不见了"></a>
+                    <h3 th:text="${womanproduct.productName}"></h3>
+                    <p th:text="${womanproduct.productDescription}"></p>
+                    <span th:text="${womanproduct.productPrice}"></span>
                     <button>加入购物车</button>
                 </div>
             </div>
             <div class="layui-tab-item">
-                <div class="product-display">
-                    <img src="" alt="图片不见了">
-                    <h3>商品名称4</h3>
-                    <p>商品描述</p>
-                    <span>商品价格</span>
+                <div class="product-display" th:each="oldmanproduct : ${oldManProductList}">
+                    <a th:href="'http://localhost:8080/product/detail?id='+${oldmanproduct.id}"><img th:src="${oldmanproduct.imgLocation}" alt="图片不见了"></a>
+                    <h3 th:text="${oldmanproduct.productName}"></h3>
+                    <p th:text="${oldmanproduct.productDescription}"></p>
+                    <span th:text="${oldmanproduct.productPrice}"></span>
                     <button>加入购物车</button>
                 </div>
             </div>
             <div class="layui-tab-item">
-                <div class="product-display">
-                    <img src="" alt="图片不见了">
-                    <h3>商品名称5</h3>
-                    <p>商品描述</p>
-                    <span>商品价格</span>
+                <div class="product-display" th:each="childproduct : ${childProductList}">
+                    <a th:href="'http://localhost:8080/product/detail?id='+${childproduct.id}"><img th:src="${childproduct.imgLocation}" alt="图片不见了"></a>
+                    <h3 th:text="${childproduct.productName}"></h3>
+                    <p th:text="${childproduct.productDescription}"></p>
+                    <span th:text="${childproduct.productPrice}"></span>
                     <button>加入购物车</button>
                 </div>
             </div>
@@ -102,23 +103,16 @@
 
 <footer>
     <!-- Add a container to center the content -->
-    <div class="container">
+    <div id="myDiv" class="container">
         <!-- Add some text or links to the footer -->
         <p>Copyright © 2023 Shopping Mall.
             <!-- Add some styling to the footer -->
-            <style>
-                footer {
-                    background-color: #f2f2f2;
-                    padding: 20px;
-                    box-sizing: border-box;
-                    width: 100%;
-                    text-align: center;
-                }
-            </style>
     </div>
 </footer>
 
 <script src="/layui/layui.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery-3.6.4.js"></script>
+<script src="/js/commonbottom.js"></script>
 <script>
     layui.use('carousel', function () {
         var carousel = layui.carousel;

@@ -48,12 +48,11 @@
     width: 140px;
     margin-left: 21px;
     border-radius: 50%;
-    background-color: black;
+    border: 1px solid;
 }
 /* 头像与用户名区域的大小 */
 .div-username-img-head-pic-size{
     height: 170px;
-    background-color: red;
 }
 /* 设置左边目录分割线的样式 */
 .hr-left-title{
@@ -64,6 +63,7 @@
 /* 设置中间内容的大小 */
 .mid-content-size{
     height: 637px;
+    margin-bottom: 57px;
 }
 
 

@@ -14,4 +14,6 @@ public class Product {
     private String productDescription;      // 商品描述
 
     private String imgLocation;             //图片位置
+
+    private String productCategory;         //商品所属类别
 }

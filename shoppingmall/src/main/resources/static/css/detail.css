@@ -52,6 +52,7 @@
 .div-mount-size{
     width: 49px;
     height: 39px;
+    text-align: center;
 }
 /* 购物车按钮设置 */
 .div-cart-left-distance{
@@ -66,11 +67,32 @@
 }
 /* 给规格加样式 */
 .p-guigge{
+    font-size: 15px;
+}
+.div-guige{
+    width: 40px;
+    height: 35px;
     margin-left: 5px;
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    /* co1umn 从上到下*/
+    align-items: center;
+    /* center代表水平方向 */
+    justify-content: center;
+    /* center代表垂直方向 */
+    cursor: pointer;
 }
 
 /* 内容距离标题统一20px */
 .div-title-left-distance{
     margin-left: 20px;
 }
+
+/*选择规格并附上颜色*/
+.div-chose-guige-color{
+    background-color: #8d8d8d
+}
+
+
+

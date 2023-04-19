@@ -16,4 +16,28 @@
         from t_product
         where id = #{id}
     </select>
+
+    <select id="findManProduct" resultType="product">
+        select *
+        from t_product
+        where product_category = '男士'
+    </select>
+
+    <select id="findWomenProduct" resultType="product">
+        select *
+        from t_product
+        where product_category = '女士'
+    </select>
+
+    <select id="findOldManProduct" resultType="product">
+        select *
+        from t_product
+        where product_category = '老人'
+    </select>
+
+    <select id="findChildProduct" resultType="product">
+        select *
+        from t_product
+        where product_category = '儿童'
+    </select>
 </mapper>
