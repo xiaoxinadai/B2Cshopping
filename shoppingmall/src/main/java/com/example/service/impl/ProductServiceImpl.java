@@ -29,10 +29,10 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ModelAndView savaDataToCart(Integer productId,String productSpec,Integer amount) {
+    public ModelAndView savaDataToCart(Integer productId,String productSpec,Integer amount,Double totalPrice) {
         ModelAndView modelAndView = new ModelAndView();
         //将信息保存到购物车
-        shoppingCartMapper.savaMessageToCart(productId,productSpec,amount);
+        shoppingCartMapper.savaMessageToCart(productId,productSpec,amount,totalPrice);
         modelAndView.setViewName("redirect:/shoppingCart/shoppingCart");
         return modelAndView;
     }

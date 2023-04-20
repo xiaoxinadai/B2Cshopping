@@ -6,5 +6,5 @@ public interface ProductService {
 
     ModelAndView toProductDetailView(Integer id);
 
-    ModelAndView savaDataToCart(Integer productId,String productSpec,Integer amount);
+    ModelAndView savaDataToCart(Integer productId,String productSpec,Integer amount,Double totalPrice);
 }

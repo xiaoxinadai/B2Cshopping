@@ -66,29 +66,30 @@
         <div>
             <!-- 内容区域 -->
             <div class="div-only-flex div-last-content-top-distance div-content-product-cart-size" th:each="shoppingCartMessage:${shoppingCartMessageList}">
-                <div class="div-content-mid">
+                <div class="div-content-mid checkboxDiv">
                     <input type="checkbox">
+                    <input class="productCartId" type="hidden" th:value="${shoppingCartMessage.id}">
                 </div>
                 <div class="div-content-mid div-img-product-size">
-                    <a><img src="" alt="图片不见了"></a>
+                    <a><img style="width: 100%;height: 100%;" th:each="product:${shoppingCartMessage.product}" th:src="${product.imgLocation}" alt="图片不见了"></a>
                 </div>
                 <div class="div-content-mid div-product-inform-wid-size">
-                    <p>名称</p>
+                    <p th:each="product:${shoppingCartMessage.product}" th:text="${product.productName}"></p>
 <!--                    <span>规格</span>-->
                     <p th:text="'规格&nbsp&nbsp&nbsp'+${shoppingCartMessage.productSpec}"></p>
                 </div>
                 <div class="div-content-mid div-price-wid-size">
-                    <span>￥900</span>
+                    <span th:each="product:${shoppingCartMessage.product}" th:text="'￥'+${product.productPrice}"></span>
                 </div>
-                <div class="div-content-left div-mount-wid-size">
-                    <input th:value="${shoppingCartMessage.productAmount}" step="1"  min="0" onkeyup="this.value= this.value.match(/\d+(\.\d{0,2})?/) ? this.value.match(/\d+(\.\d{0,2})?/)[0] : ''" class="input-product-number" type="number" value="1" style="text-align: center;">
+                <div class="div-content-mid div-mount-wid-size">
+                    <input th:value="${shoppingCartMessage.productAmount}" step="1" min="1" onkeyup="this.value= this.value.match(/\d+(\.\d{0,2})?/) ? this.value.match(/\d+(\.\d{0,2})?/)[0] : ''" class="input-product-number" type="number" value="1" style="text-align: center;">
                 </div>
                 <div class="div-content-mid div-total-wid-size">
-                    <span>小计总价</span>
+                    <span th:text="'￥'+${shoppingCartMessage.productTotalPrice}"></span>
                 </div>
                 <div class="div-content-mid div-caozuo-wid-size">
                     <!-- 删除按钮 -->
-                    <img src="" alt="图片不见了">
+                    <img style="width: 100%;height: 100%;" src="/images/shoppingCart-delete.jpg" alt="图片不见了">
                 </div>
             </div>
             <!-- 结算按钮区域 -->
@@ -96,7 +97,7 @@
                 <div class="div-end-settle-acounts-style div-content-mid">立即结算</div>
                 <div>
                     <span>商品总价：</span>
-                    <span>￥900</span>
+                    <span>￥0</span>
                 </div>
             </div>
         </div>
@@ -114,6 +115,7 @@
 
 <script src="/layui/layui.js"></script>
 <script type="text/javascript" src="/js/jquery/jquery-3.6.4.js"></script>
+<script type="text/javascript" src="/js/shoppingCart.js"></script>
 <script src="/js/commonbottom.js"></script>
 </body>
 

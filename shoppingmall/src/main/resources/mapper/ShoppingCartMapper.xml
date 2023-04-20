@@ -7,12 +7,24 @@
 <!--    </resultMap>-->
 
     <insert id="savaMessageToCart">
-        insert into t_cart(product_id,product_spec,product_amount)
-        values(#{productId},#{productSpec},#{amount})
+        insert into t_cart(product_id,product_spec,product_amount,product_total_price)
+        values(#{productId},#{productSpec},#{amount},#{totalPrice})
     </insert>
     
-    <select id="findShoppingCartMessage" resultType="shoppingCart">
+    <select id="findShoppingCartMessage" resultType="shoppingCartDto">
         select *
         from t_cart
     </select>
+
+    <update id="updateDataFromCart">
+        update t_cart
+        set product_amount = #{productAmount},
+            product_total_price = #{totalPrice}
+        where id = #{productCartId}
+    </update>
+
+    <delete id="deleteByCartId">
+        delete from t_cart
+        where id = #{productCartId}
+    </delete>
 </mapper>

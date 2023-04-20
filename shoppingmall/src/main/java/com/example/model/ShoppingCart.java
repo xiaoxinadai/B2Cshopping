@@ -12,4 +12,6 @@ public class ShoppingCart {
     private String productSpec;
 
     private Integer productAmount;
+
+    private Double productTotalPrice;
 }

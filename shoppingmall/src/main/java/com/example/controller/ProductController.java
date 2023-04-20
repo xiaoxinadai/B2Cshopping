@@ -34,7 +34,8 @@ public class ProductController {
     public ModelAndView toShoppingCartView(
                                             @RequestParam(name = "productId",required = false) Integer productId,
                                             @RequestParam(name = "productSpec",required = false) String productSpec,
-                                            @RequestParam(name = "amount",required = false) Integer amount) {
-        return productService.savaDataToCart(productId,productSpec,amount);
+                                            @RequestParam(name = "amount",required = false) Integer amount,
+                                            @RequestParam(name = "totalPrice",required = false) Double totalPrice) {
+        return productService.savaDataToCart(productId,productSpec,amount,totalPrice);
     }
 }

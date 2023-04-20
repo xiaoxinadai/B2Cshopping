@@ -4,12 +4,14 @@ $(function () {
     $("#cart-button").on("click", function () {
         let amount = $("#product-amount").val();
         let productSpec = $('.div-chose-guige-color').children(1).text();
+        let totalPrice = productPrice * amount
         console.log(amount);
         console.log(productSpec);
         postDirect("/product/shoppingCart",{
             "productId":productId,
             "productSpec":productSpec,
-            "amount":amount
+            "amount":amount,
+            "totalPrice":totalPrice
         });
     });
     // $("#cart-button").on("click", function () {

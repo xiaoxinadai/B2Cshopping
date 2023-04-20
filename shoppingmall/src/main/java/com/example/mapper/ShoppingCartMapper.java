@@ -1,14 +1,20 @@
 package com.example.mapper;
 
-import com.example.model.ShoppingCart;
+import com.example.dto.ShoppingCartDto;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Mapper
 public interface ShoppingCartMapper {
+    @Transactional
+    void savaMessageToCart(Integer productId,String productSpec,Integer amount,Double totalPrice);
 
-    void savaMessageToCart(Integer productId,String productSpec,Integer amount);
+    List<ShoppingCartDto> findShoppingCartMessage();
+    @Transactional
+    void updateDataFromCart(Integer productCartId, Integer productAmount, Double totalPrice);
 
-    List<ShoppingCart> findShoppingCartMessage();
+    @Transactional
+    void deleteByCartId(Integer productCartId);
 }

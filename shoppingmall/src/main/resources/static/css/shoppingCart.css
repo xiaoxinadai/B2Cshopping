@@ -123,5 +123,8 @@
 /* 设置操作框宽度大小 */
 .div-caozuo-wid-size{
     width: 50px;
+    height: 40px;
+    margin-top: 55px;
+    cursor: pointer;
 }
 
