@@ -31,14 +31,14 @@
 /* 设置左边目录的大小 */
 .div-left-title-size{
     width: 182px;
-    height: 561px;
+    height: 558px;
     margin-left: 170px;
     border: 1px solid #e4e4e4;
 }
 /* 设置右边内容框的大小 */
 .div-bottom-right-content-size{
     width: 942px;
-    height: 553px;
+    height: 550px;
     border: 1px solid #e4e4e4;
     margin-left: 50px;
 }
@@ -62,7 +62,7 @@
 }
 /* 设置中间内容的大小 */
 .mid-content-size{
-    height: 637px;
+    height: 636px;
     margin-bottom: 57px;
 }
 

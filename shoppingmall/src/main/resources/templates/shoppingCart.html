@@ -42,7 +42,7 @@
     <div class="div-mid-distance">
         <div class="div-only-flex">
             <!-- 顶部目录 -->
-            <input type="checkbox">
+            <input id="allCheck" type="checkbox">
             <div class="div-content-left div-all-chose-size">
                 <p style="margin-left: 5px;">全选</p>
             </div>
@@ -67,7 +67,7 @@
             <!-- 内容区域 -->
             <div class="div-only-flex div-last-content-top-distance div-content-product-cart-size" th:each="shoppingCartMessage:${shoppingCartMessageList}">
                 <div class="div-content-mid checkboxDiv">
-                    <input type="checkbox">
+                    <input class="checkboxClass" type="checkbox">
                     <input class="productCartId" type="hidden" th:value="${shoppingCartMessage.id}">
                 </div>
                 <div class="div-content-mid div-img-product-size">
@@ -93,11 +93,11 @@
                 </div>
             </div>
             <!-- 结算按钮区域 -->
-            <div class="div-content-right div-last-content-top-distance">
+            <div class="div-content-right div-last-content-top-distance divSettle">
                 <div class="div-end-settle-acounts-style div-content-mid">立即结算</div>
-                <div>
+                <div class="divSettleShow">
                     <span>商品总价：</span>
-                    <span>￥0</span>
+                    <span class="spanSettlePrice">￥0</span>
                 </div>
             </div>
         </div>
