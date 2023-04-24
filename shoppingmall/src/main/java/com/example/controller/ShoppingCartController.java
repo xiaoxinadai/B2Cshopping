@@ -36,4 +36,12 @@ public class ShoppingCartController {
     public void deleteByCartId(@RequestParam Integer productCartId){
         shoppingCartService.deleteByCartId(productCartId);
     }
+
+    //在购物车页面点击立即结算按钮生成订单
+    @PostMapping("/atOnceSettle")
+    public ModelAndView atOnceSettle(
+                                        @RequestParam Integer[] shoppingCartArray,
+                                        @RequestParam Double settlePrice){
+        return shoppingCartService.atOnceSettle(shoppingCartArray,settlePrice);
+    }
 }

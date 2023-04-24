@@ -88,6 +88,25 @@ $(function () {
         $(this).parent().parent().find('.divSettle').find('.divSettleShow').find('.spanSettlePrice').text('￥'+totalPrice.toFixed(2));
     });
 
+    // 点击立即结算按钮，保存数据，生成订单
+    $('.div-end-settle-acounts-style').click(function (){
+        let shoppingCartArray = [];
+        $('.div-content-product-cart-size').each(function (){
+            let productCartId = $(this).find('.checkboxDiv').find('.productCartId').val();
+            if ($(this).find('.checkboxDiv').find('.checkboxClass').prop('checked')){
+                shoppingCartArray.push(productCartId);
+            }
+        });
+        let settlePrice = $('.spanSettlePrice').text().substring(1);
+        postDirect(
+            "/shoppingCart/atOnceSettle",
+            {
+                "shoppingCartArray":shoppingCartArray,
+                "settlePrice":settlePrice
+            }
+        )
+    });
+
     // 写一个计算总价的函数
     function countTotalPriceFunc(totalPrice){
         $('.div-content-product-cart-size').each(function (){
@@ -99,36 +118,6 @@ $(function () {
         });
         return totalPrice;
     };
-
-    // $('.div-content-product-cart-size').find('.checkboxDiv').find('input[type="checkbox"]').each(function (){
-    //     let allCheckTotalPrice = 0;
-    //     $(this).change(function (){
-    //         // 获取每一个被选中的复选框下的数据，进行计算
-    //         $(this).parent().parent().each(function (){
-    //             if ($(this).find('.checkboxDiv').find('input[type="checkbox"]:checked')){
-    //                 let totalPrice = $(this).find('.div-total-wid-size').find('span').text().substring(1);
-    //                 allCheckTotalPrice += Number(totalPrice);
-    //             }
-    //         });
-    //         $(this).parent().parent().parent().find('.divSettle').find('.divSettleShow').find('.spanSettlePrice').text('￥'+allCheckTotalPrice);
-    //     });
-    // });
-
-
-    // $('.div-content-product-cart-size').each(function (){
-    //     $(this).find('.checkboxDiv').find('input[type="checkbox"]').change(function (){
-    //         let allCheckTotalPrice = 0;
-    //         // 获取每一个被选中的复选框下的数据，进行计算
-    //         $(this).parent().parent().siblings('.div-content-product-cart-size').each(function (){
-    //             if ($(this).find('.checkboxDiv').find('input[type="checkbox"]:checked')){
-    //                 let totalPrice = $(this).find('.div-total-wid-size').find('span').text().substring(1);
-    //                 allCheckTotalPrice += Number(totalPrice);
-    //             }
-    //         });
-    //         $(this).parent().parent().parent().find('.divSettle').find('.divSettleShow').find('.spanSettlePrice').text('￥'+allCheckTotalPrice);
-    //     });
-    // });
-
 
     function postDirect(url, params) {
         var temp = document.createElement("form"); //创建form表单

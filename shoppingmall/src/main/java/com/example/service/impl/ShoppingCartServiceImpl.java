@@ -1,26 +1,31 @@
 package com.example.service.impl;
 
 import com.example.dto.ShoppingCartDto;
+import com.example.mapper.OrderMapper;
 import com.example.mapper.ProductMapper;
 import com.example.mapper.ShoppingCartMapper;
 import com.example.model.Product;
-import com.example.model.ShoppingCart;
 import com.example.service.ShoppingCartService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     private ShoppingCartMapper shoppingCartMapper;
     private ProductMapper productMapper;
+    private OrderMapper orderMapper;
 
-    public ShoppingCartServiceImpl(ShoppingCartMapper shoppingCartMapper, ProductMapper productMapper) {
+    public ShoppingCartServiceImpl(ShoppingCartMapper shoppingCartMapper, ProductMapper productMapper, OrderMapper orderMapper) {
         this.shoppingCartMapper = shoppingCartMapper;
         this.productMapper = productMapper;
+        this.orderMapper = orderMapper;
     }
 
     @Override
@@ -48,5 +53,14 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     @Override
     public void deleteByCartId(Integer productCartId) {
         shoppingCartMapper.deleteByCartId(productCartId);
+    }
+
+    @Override
+    public ModelAndView atOnceSettle(Integer[] shoppingCartArray,Double settlePrice) {
+        ModelAndView modelAndView = new ModelAndView();
+        String str = Arrays.stream(shoppingCartArray).map(Objects::toString).collect(Collectors.joining(","));
+        orderMapper.saveOrderData(str,settlePrice);
+        modelAndView.setViewName("redirect:/personal/order/form");
+        return modelAndView;
     }
 }

@@ -31,14 +31,15 @@
 /* 设置左边目录的大小 */
 .div-left-title-size{
     width: 182px;
-    height: 558px;
+    height: 561px;
     margin-left: 170px;
     border: 1px solid #e4e4e4;
 }
 /* 设置右边内容框的大小 */
 .div-bottom-right-content-size{
+    background-color: azure;
     width: 942px;
-    height: 550px;
+    height: 553px;
     border: 1px solid #e4e4e4;
     margin-left: 50px;
 }
@@ -62,10 +63,63 @@
 }
 /* 设置中间内容的大小 */
 .mid-content-size{
-    height: 636px;
+    height: 637px;
     margin-bottom: 57px;
 }
+/* 设置右边内容距离四周边框的距离 */
+.div-right-center-content{
+    margin-left: 30px;
+    margin-top: 15px;
+    margin-right: 30px;
+}
 
+/* 设置我的订单标题的css样式 */
+.span-myorder-title-style{
+    font-size: 20px;
+}
+
+/* 设置订单选项框距离上下两边的距离 */
+.div-chose-order-top-bottom-distance{
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* 设置每个标题间的距离 */
+.span-margin-left-distance{
+    margin-left: 20px;
+}
+/* 设置订单信息框的宽度 */
+.div-order-message-size{
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+/* 设置订单内商品信息的css样式 */
+.div-order-product-message-size{
+    height: 81px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color:beige;
+}
+
+/* 设置左边目录距离下一个的距离 */
+.div-span-title-bottom-distance{
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+/* 名称距离左边的距离 */
+.div-product-name-left{
+    margin-left: 20px;
+    width: 600px;
+}
+/* 垂直方向居中 */
+.div-flex-chuizhi-mid{
+    display: flex;
+    /* 针对子元素的垂直方向对齐方式 */
+    align-items: center;
+}
 
 
 

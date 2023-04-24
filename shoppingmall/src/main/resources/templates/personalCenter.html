@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,19 +54,60 @@
                 <div class="">
                     <img class="div-head-pic-size" src="/images/touxiang.jpg" alt="图片不见了">
                 </div>
-                <div>用户名</div>
+                <div class="div-content-mid">
+                    <span>用户名</span>
+                </div>
             </div>
             <!-- 下方标题内容 -->
             <hr class="hr-left-title">
             <div>
-                <div>个人信息</div>
-                <div>我的订单</div>
+                <div class="div-content-mid div-span-title-bottom-distance">
+                    <span>个人信息</span>
+                </div>
+                <div class="div-content-mid div-span-title-bottom-distance">
+                    <span>我的订单</span>
+                </div>
             </div>
         </div>
 
         <!-- 目录对应的内容 -->
         <div class="div-bottom-right-content-size">
+            <div class="div-right-center-content">
+                <div>
+                    <span class="span-myorder-title-style">我的订单</span>
+                </div>
+                <div class="div-chose-order-top-bottom-distance">
+                    <span>全部订单</span>
+                    <span class="span-margin-left-distance">待支付</span>
+                    <span class="span-margin-left-distance">待收货</span>
+                    <span class="span-margin-left-distance">已关闭</span>
+                </div>
 
+                <!-- 订单内容 -->
+                <div class="div-order-message-size" th:each="orderDto:${allMessageList}">
+                    <div>订单状态（待支付、待收货、已收货、已取消）</div>
+                    <div>
+                        <span>订单时间</span>
+                        <span>收件人</span>
+                        <span>订单号：5160513358520018</span>
+                    </div>
+                    <hr>
+                    <!-- 订单内商品信息 -->
+                    <div class="div-order-product-message-size div-only-flex"
+                         th:each="shoppingCartDto:${orderDto.shoppingCartDtoList}">
+                        <img th:src="${shoppingCartDto.product.imgLocation}" alt="图片不见了">
+                        <div class="div-product-name-left div-flex-chuizhi-mid">
+                            <div>
+                                <p th:text="${shoppingCartDto.product.productName}"></p>
+                                <p th:text="'￥'+${shoppingCartDto.product.productPrice}+'&nbsp&nbsp*&nbsp&nbsp'+${shoppingCartDto.productAmount}"></pth>
+                            </div>
+                        </div>
+                        <div>
+                            <span>立即支付/确认收货/交易完成</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -74,15 +115,16 @@
 <!-- 公共底部栏 -->
 <footer>
     <!-- Add a container to center the content -->
-    <div id="myDiv" class="container">
+    <div class="container">
         <!-- Add some text or links to the footer -->
         <p>Copyright © 2023 Shopping Mall.
     </div>
 </footer>
 
-<script src="/layui/layui.js"></script>
+<script src="layui/layui.js"></script>
 <script type="text/javascript" src="/js/jquery/jquery-3.6.4.js"></script>
-<script src="/js/commonbottom.js"></script>
+<script src="/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/js/personalCenter.js"></script>
 </body>
 
 </html>

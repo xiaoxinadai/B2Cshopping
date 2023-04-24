@@ -27,4 +27,16 @@
         delete from t_cart
         where id = #{productCartId}
     </delete>
+
+    <select id="findProductIdByCartId" resultType="integer">
+        select product_id
+        from t_cart
+        where id = #{cartId}
+    </select>
+
+    <select id="findAllMessageByCartId" resultType="shoppingCart">
+        select *
+        from t_cart
+        where id = #{cartId}
+    </select>
 </mapper>

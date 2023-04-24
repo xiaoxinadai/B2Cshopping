@@ -9,4 +9,6 @@ public interface ShoppingCartService {
     void updateDataFromCart(Integer productCartId,Integer productAmount,Double totalPrice);
 
     void deleteByCartId(Integer productCartId);
+
+    ModelAndView atOnceSettle(Integer[] shoppingCartArray,Double settlePrice);
 }
