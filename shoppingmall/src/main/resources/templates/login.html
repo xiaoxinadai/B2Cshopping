@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/css/login.css">
     <title>登录</title>
+    <link href="/layui/css/layui.css" rel="stylesheet">
     <script type="text/javascript" src="/js/jquery/jquery-3.6.4.js"></script>
     <script type="text/javascript" src="/js/login.js"></script>
 </head>
 <body>
 <div class="backgroundpic">
     <div class="toplogin">
-        <form method="post" action="/user/checkLogin">
+        <form id="loginForm" method="post" action="/user/checkLogin">
             <div>
                 <!-- 输入框div -->
                 <div>
@@ -35,9 +36,13 @@
             </div>
         </form>
         <div class="divregister">
-            <a class="aregister" href="">没有账号？立即注册</a>
+            <a class="aregister" href="http://localhost:8080/user/register">没有账号？立即注册</a>
         </div>
     </div>
 </div>
+<script src="/layui/layui.js"></script>
+<script th:inline="javascript">
+    let registerSign = [[${registerSign}]];
+</script>
 </body>
 </html>

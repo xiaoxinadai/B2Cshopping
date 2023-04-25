@@ -4,10 +4,7 @@ import com.example.model.User;
 import com.example.service.UserService;
 import com.wf.captcha.utils.CaptchaUtil;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,11 +26,13 @@ public class UserController {
      */
     @GetMapping("/login")
     public ModelAndView loginTest(
-                                    @ModelAttribute("captchaError") String captchaError,
-                                    @ModelAttribute("checkLoginError") String checkLoginError){
+            @ModelAttribute("captchaError") String captchaError,
+            @ModelAttribute("checkLoginError") String checkLoginError,
+            @ModelAttribute("registerSign") String registerSign) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("captchaError",captchaError);
-        modelAndView.addObject("checkLoginError",checkLoginError);
+        modelAndView.addObject("captchaError", captchaError);
+        modelAndView.addObject("checkLoginError", checkLoginError);
+        modelAndView.addObject("registerSign", registerSign);
         modelAndView.setViewName("login");
         return modelAndView;
     }
@@ -42,18 +41,18 @@ public class UserController {
      * 登录信息验证
      */
     @PostMapping("/checkLogin")
-    public ModelAndView checkLogin(User user, HttpSession httpSession, HttpServletRequest httpServletRequest){
-        return userService.checkLogin(user,httpSession,httpServletRequest);
+    public ModelAndView checkLogin(User user, HttpSession httpSession, HttpServletRequest httpServletRequest) {
+        return userService.checkLogin(user, httpSession, httpServletRequest);
     }
 
     /**
      * 跳转用户注册界面
      */
     @RequestMapping("/register")
-    public ModelAndView registerView(@ModelAttribute("registerError") String registerError){
-        if (registerError!=null){
+    public ModelAndView registerView(@ModelAttribute("registerError") String registerError) {
+        if (registerError != null) {
             ModelAndView modelAndView = new ModelAndView();
-            modelAndView.addObject("registerError",registerError);
+            modelAndView.addObject("registerError", registerError);
             modelAndView.setViewName("register");
             return modelAndView;
         }
@@ -65,9 +64,18 @@ public class UserController {
      * 1、用户名不可重复
      */
     @RequestMapping("/checkRegister")
-    public ModelAndView checkRegister(User user,HttpSession httpSession,HttpServletRequest httpServletRequest){
+    public ModelAndView checkRegister(User user, HttpSession httpSession, HttpServletRequest httpServletRequest) {
         return userService.checkRegister(user);
     }
+
+    /**
+     * 退出登录
+     */
+    @RequestMapping("/logout")
+    public ModelAndView toLogout(HttpSession httpSession){
+        return userService.toLogout(httpSession);
+    }
+
 
 
     /**
@@ -75,6 +83,6 @@ public class UserController {
      */
     @RequestMapping("/captcha")
     public void captcha(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        CaptchaUtil.out(request,response);
+        CaptchaUtil.out(request, response);
     }
 }

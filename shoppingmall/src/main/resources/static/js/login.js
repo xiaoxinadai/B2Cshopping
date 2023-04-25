@@ -6,4 +6,8 @@ $(function (){
             $("#captchaid").hide();
         }
     });
+    //注册成功之后跳转到登录页面，给一个登录成功的提示
+    if (registerSign === "1"){
+        layer.msg('注册成功！',{time:1000});
+    };
 })

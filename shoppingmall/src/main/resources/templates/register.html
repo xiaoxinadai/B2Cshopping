@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/css/register.css">
+    <link href="/layui/css/layui.css" rel="stylesheet">
     <script type="text/javascript" src="/js/jquery/jquery-3.6.4.js"></script>
     <script type="text/javascript" src="/js/register.js"></script>
     <title>注册</title>
@@ -10,7 +11,7 @@
 <body>
 <div class="backgroundpic">
     <div class="toplogin">
-        <form method="post" action="/user/checkRegister">
+        <form id="registerForm" method="post" action="/user/checkRegister">
             <div>
                 <!-- 输入框div -->
                 <div>
@@ -35,7 +36,7 @@
                     <span class="spanCaptchaError" id="captchaid" th:text="${registerError}"></span>
                 </div>
                 <div class="divbuttonlogin">
-                    <button type="submit" class="buttonlogin">注册</button>
+                    <button type="submit" id="buttonRegister" class="buttonlogin">注册</button>
                 </div>
             </div>
         </form>
@@ -44,5 +45,6 @@
         </div> -->
     </div>
 </div>
+<script src="/layui/layui.js"></script>
 </body>
 </html>

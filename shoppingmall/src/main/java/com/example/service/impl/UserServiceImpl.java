@@ -43,6 +43,7 @@ public class UserServiceImpl implements UserService {
         }
         if (userList.size()>0 && loginPassword.equals(userList.get(0).getPassword())){
             modelAndView.setViewName("redirect:/homepage/view");
+            httpSession.setAttribute("successLogin",user);
             return modelAndView;
         }else {
             modelAndView.addObject("checkLoginError","请检测用户名和密码;");
@@ -78,10 +79,19 @@ public class UserServiceImpl implements UserService {
         //用户名没有重复，则保存到数据库中
         Integer saveRegisterUserNum = userMapper.saveRegisterUser(user);
         if(saveRegisterUserNum>0){
+            modelAndView.addObject("registerSign","1");
             modelAndView.setViewName("redirect:/user/login");
             return modelAndView;
         }
         modelAndView.setViewName("404");
+        return modelAndView;
+    }
+
+    @Override
+    public ModelAndView toLogout(HttpSession httpSession) {
+        ModelAndView modelAndView = new ModelAndView();
+        httpSession.removeAttribute("successLogin");
+        modelAndView.setViewName("login");
         return modelAndView;
     }
 }

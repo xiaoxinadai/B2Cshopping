@@ -8,14 +8,4 @@ import lombok.Data;
 public class ShoppingCartDto extends ShoppingCart {
 
     private Product product;
-
-//    private String productName;
-//
-//    private Double productPrice;
-//
-//    private String productDescription;
-//
-//    private String imgLocation;
-//
-//    private String productCategory;
 }
