@@ -5,11 +5,14 @@ import com.example.model.User;
 import com.example.service.UserService;
 import com.example.util.Md5Util;
 import com.wf.captcha.utils.CaptchaUtil;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -82,6 +85,10 @@ public class UserServiceImpl implements UserService {
         //md5加密
         String passwordMd5 = Md5Util.encrypt(user.getPassword());
         user.setPassword(passwordMd5);
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter dateTimeFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH");
+        String createTime = localDateTime.format(dateTimeFormat);
+        user.setCreateTime(LocalDateTime.parse(createTime));
         Integer saveRegisterUserNum = userMapper.saveRegisterUser(user);
         if(saveRegisterUserNum>0){
             modelAndView.addObject("registerSign","1");

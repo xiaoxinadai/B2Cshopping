@@ -14,6 +14,7 @@
     <select id="findShoppingCartMessage" resultType="shoppingCartDto">
         select *
         from t_cart
+        order by id desc
     </select>
 
     <update id="updateDataFromCart">
