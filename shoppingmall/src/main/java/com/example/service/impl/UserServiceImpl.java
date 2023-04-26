@@ -3,6 +3,7 @@ package com.example.service.impl;
 import com.example.mapper.UserMapper;
 import com.example.model.User;
 import com.example.service.UserService;
+import com.example.util.Md5Util;
 import com.wf.captcha.utils.CaptchaUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,6 +28,7 @@ public class UserServiceImpl implements UserService {
 
         String loginUsername = user.getUsername();
         String loginPassword = user.getPassword();
+        String loginPasswordMd5 = Md5Util.encrypt(loginPassword);
         List<User> userList = userMapper.queryByLoginUsername(loginUsername);
         //验证码判断
         if (!CaptchaUtil.ver(user.getCaptcha(),httpServletRequest)){
@@ -35,13 +37,13 @@ public class UserServiceImpl implements UserService {
             modelAndView.addObject("captchaError","验证码有误!");
             //校验用户名和密码
             //根据用户名去查询数据库中的用户名和密码，然后进行密码的比较
-            if (userList.size() == 0 || !loginPassword.equals(userList.get(0).getPassword())){
+            if (userList.size() == 0 || !loginPasswordMd5.equals(userList.get(0).getPassword())){
                 modelAndView.addObject("checkLoginError","请检测用户名和密码;");
             }
             modelAndView.setViewName("redirect:/user/login");
             return modelAndView;
         }
-        if (userList.size()>0 && loginPassword.equals(userList.get(0).getPassword())){
+        if (userList.size()>0 && loginPasswordMd5.equals(userList.get(0).getPassword())){
             modelAndView.setViewName("redirect:/homepage/view");
             httpSession.setAttribute("successLogin",user);
             return modelAndView;
@@ -77,6 +79,9 @@ public class UserServiceImpl implements UserService {
             return modelAndView;
         }
         //用户名没有重复，则保存到数据库中
+        //md5加密
+        String passwordMd5 = Md5Util.encrypt(user.getPassword());
+        user.setPassword(passwordMd5);
         Integer saveRegisterUserNum = userMapper.saveRegisterUser(user);
         if(saveRegisterUserNum>0){
             modelAndView.addObject("registerSign","1");
@@ -91,7 +96,7 @@ public class UserServiceImpl implements UserService {
     public ModelAndView toLogout(HttpSession httpSession) {
         ModelAndView modelAndView = new ModelAndView();
         httpSession.removeAttribute("successLogin");
-        modelAndView.setViewName("login");
+        modelAndView.setViewName("redirect:/user/login");
         return modelAndView;
     }
 }
