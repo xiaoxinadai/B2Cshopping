@@ -25,7 +25,7 @@ public class User {
     private String captcha;             //验证码
 
     public String getCreateTime() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH");
         return createTime.format(formatter);
     }
 

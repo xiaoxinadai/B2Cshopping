@@ -1,11 +1,19 @@
 package com.example.service.impl;
 
+import com.example.dto.ShoppingCartDto;
 import com.example.mapper.ProductMapper;
 import com.example.mapper.ShoppingCartMapper;
 import com.example.model.Product;
+import com.example.model.User;
 import com.example.service.ProductService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -29,10 +37,20 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ModelAndView savaDataToCart(Integer productId,String productSpec,Integer amount,Double totalPrice) {
+    public ModelAndView saveDataToCart(Integer productId, String productSpec, Integer amount, Double totalPrice, List<ShoppingCartDto> shoppingCartListArray, HttpSession httpSession, HttpServletResponse httpServletResponse) throws JsonProcessingException {
         ModelAndView modelAndView = new ModelAndView();
-        //将信息保存到购物车
-        shoppingCartMapper.savaMessageToCart(productId,productSpec,amount,totalPrice);
+        User user = (User) httpSession.getAttribute("successLogin");
+        if (user!=null){
+            Integer userId = user.getId();
+            //将信息保存到购物车
+            shoppingCartMapper.savaMessageToCart(productId,productSpec,amount,totalPrice,userId);
+        }
+        if (shoppingCartListArray!=null){
+            ObjectMapper objectMapper = new ObjectMapper();
+            String shoppingCartDtoListString = objectMapper.writeValueAsString(shoppingCartListArray);
+            modelAndView.addObject("shoppingCartDtoListString",shoppingCartDtoListString);
+            modelAndView.addObject("shopping","s");
+        }
         modelAndView.setViewName("redirect:/shoppingCart/shoppingCart");
         return modelAndView;
     }

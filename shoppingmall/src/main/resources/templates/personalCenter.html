@@ -27,7 +27,7 @@
     </li>
     <li class="layui-nav-item"><a href="">帮助</a></li>
     <li class="layui-nav-item liright" lay-unselect="">
-        <a href="javascript:;"><img src="/images/touxiang.jpg" class="layui-nav-img"></a>
+        <a href="javascript:;"><img src="/images/headSculpture/default.jpg" class="layui-nav-img"></a>
         <dl class="layui-nav-child">
             <dd><a href="javascript:;">个人中心</a></dd>
             <dd><a href="javascript:;">购物车</a></dd>
@@ -52,7 +52,7 @@
             <!-- 头像与用户名区域 -->
             <div class="div-username-img-head-pic-size">
                 <div class="">
-                    <img class="div-head-pic-size" src="/images/touxiang.jpg" alt="图片不见了">
+                    <img class="div-head-pic-size" src="/images/headSculpture/default.jpg" alt="图片不见了">
                 </div>
                 <div class="div-content-mid">
                     <span>用户名</span>
@@ -84,26 +84,28 @@
                 </div>
 
                 <!-- 订单内容 -->
-                <div class="div-order-message-size" th:each="orderDto:${allMessageList}">
-                    <div>订单状态（待支付、待收货、已收货、已取消）</div>
-                    <div>
-                        <span>订单时间</span>
-                        <span>收件人</span>
-                        <span>订单号：5160513358520018</span>
-                    </div>
-                    <hr>
-                    <!-- 订单内商品信息 -->
-                    <div class="div-order-product-message-size div-only-flex"
-                         th:each="shoppingCartDto:${orderDto.shoppingCartDtoList}">
-                        <img th:src="${shoppingCartDto.product.imgLocation}" alt="图片不见了">
-                        <div class="div-product-name-left div-flex-chuizhi-mid">
-                            <div>
-                                <p th:text="${shoppingCartDto.product.productName}"></p>
-                                <p th:text="'￥'+${shoppingCartDto.product.productPrice}+'&nbsp&nbsp*&nbsp&nbsp'+${shoppingCartDto.productAmount}"></pth>
-                            </div>
-                        </div>
+                <div class="order__content">
+                    <div class="div-order-message-size" th:each="orderDto:${allMessageList}">
+                        <div>订单状态（待支付、待收货、已收货、已取消）</div>
                         <div>
-                            <span>立即支付/确认收货/交易完成</span>
+                            <span>订单时间</span>
+                            <span>收件人</span>
+                            <span>订单号：5160513358520018</span>
+                        </div>
+                        <hr>
+                        <!-- 订单内商品信息 -->
+                        <div class="div-order-product-message-size div-only-flex"
+                             th:each="shoppingCartDto:${orderDto.shoppingCartDtoList}">
+                            <img th:src="${shoppingCartDto.product.imgLocation}" alt="图片不见了">
+                            <div class="div-product-name-left div-flex-chuizhi-mid">
+                                <div>
+                                    <p th:text="${shoppingCartDto.product.productName}"></p>
+                                    <p th:text="'￥'+${shoppingCartDto.product.productPrice}+'&nbsp&nbsp*&nbsp&nbsp'+${shoppingCartDto.productAmount}"></p>
+                                </div>
+                            </div>
+                            <div>
+                                <span>立即支付/确认收货/交易完成</span>
+                            </div>
                         </div>
                     </div>
                 </div>

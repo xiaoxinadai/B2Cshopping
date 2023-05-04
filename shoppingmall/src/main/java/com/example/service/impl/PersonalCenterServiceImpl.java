@@ -7,10 +7,12 @@ import com.example.mapper.ProductMapper;
 import com.example.mapper.ShoppingCartMapper;
 import com.example.model.Product;
 import com.example.model.ShoppingCart;
+import com.example.model.User;
 import com.example.service.PersonalCenterService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,10 +30,11 @@ public class PersonalCenterServiceImpl implements PersonalCenterService {
     }
 
     @Override
-    public ModelAndView toMyOrderFormView() {
+    public ModelAndView toMyOrderFormView(HttpSession httpSession) {
         ModelAndView modelAndView = new ModelAndView();
         //到数据库中查询信息
-        List<OrderDto> allMessageList = orderMapper.findAllMessage();
+        User user = (User) httpSession.getAttribute("successLogin");
+        List<OrderDto> allMessageList = orderMapper.findAllMessage(user.getId());
         for (int i = 0;i<allMessageList.size();i++){
             List<ShoppingCartDto> shoppingCartDtoList = new ArrayList<>();
             OrderDto orderDto = allMessageList.get(i);

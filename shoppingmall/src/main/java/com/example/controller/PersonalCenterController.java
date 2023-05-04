@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/personal")
 public class PersonalCenterController {
@@ -17,7 +19,7 @@ public class PersonalCenterController {
     }
 
     @GetMapping("/order/form")
-    public ModelAndView toMyOrderFormView(){
-        return personalCenterService.toMyOrderFormView();
+    public ModelAndView toMyOrderFormView(HttpSession httpSession){
+        return personalCenterService.toMyOrderFormView(httpSession);
     }
 }

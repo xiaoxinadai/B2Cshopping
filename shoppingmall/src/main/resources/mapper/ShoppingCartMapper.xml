@@ -7,8 +7,8 @@
 <!--    </resultMap>-->
 
     <insert id="savaMessageToCart">
-        insert into t_cart(product_id,product_spec,product_amount,product_total_price)
-        values(#{productId},#{productSpec},#{amount},#{totalPrice})
+        insert into t_cart(product_id,product_spec,product_amount,product_total_price,user_id)
+        values(#{productId},#{productSpec},#{amount},#{totalPrice},#{userId})
     </insert>
     
     <select id="findShoppingCartMessage" resultType="shoppingCartDto">
@@ -39,5 +39,16 @@
         select *
         from t_cart
         where id = #{cartId}
+    </select>
+
+    <insert id="insertShoppingCartDtoMessage" parameterType="shoppingCartDto">
+        insert into t_cart(user_id,product_id,product_spec,product_amount,product_total_price)
+        values (#{userId},#{shoppingCartDto.productId},#{shoppingCartDto.productSpec},#{shoppingCartDto.productAmount},#{shoppingCartDto.productTotalPrice})
+    </insert>
+
+    <select id="findCartMessageByUserId" resultType="shoppingCartDto">
+        select *
+        from t_cart
+        where user_id = #{userId}
     </select>
 </mapper>

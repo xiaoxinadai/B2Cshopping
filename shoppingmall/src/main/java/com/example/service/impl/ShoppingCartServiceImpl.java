@@ -5,10 +5,13 @@ import com.example.mapper.OrderMapper;
 import com.example.mapper.ProductMapper;
 import com.example.mapper.ShoppingCartMapper;
 import com.example.model.Product;
+import com.example.model.User;
 import com.example.service.ShoppingCartService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -29,18 +32,57 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     }
 
     @Override
-    public ModelAndView toShoppingCartView() {
+    public ModelAndView toShoppingCartView(HttpServletRequest httpServletRequest, List<ShoppingCartDto> shoppingCartList) {
         ModelAndView modelAndView = new ModelAndView();
-        List<ShoppingCartDto> resultList = new ArrayList<>();
-        List<ShoppingCartDto> shoppingCartMessageList = shoppingCartMapper.findShoppingCartMessage();
-        for (ShoppingCartDto shoppingCartDto:shoppingCartMessageList){
-            Integer productId = shoppingCartDto.getProductId();
-            //根据商品id查询出商品的信息放到dto中
-            Product productMessageById = productMapper.findMessageById(productId);
-            shoppingCartDto.setProduct(productMessageById);
-            resultList.add(shoppingCartDto);
+        if (httpServletRequest.getSession().getAttribute("shoppingCartSettleUnLogin")!=null && httpServletRequest.getSession().getAttribute("successLogin")!=null){
+            List<ShoppingCartDto> resultList = new ArrayList<>();
+            shoppingCartList = (List<ShoppingCartDto>) httpServletRequest.getSession().getAttribute("shoppingCartSettleUnLogin");
+            User user = (User) httpServletRequest.getSession().getAttribute("successLogin");
+            for (ShoppingCartDto shoppingCartDto:shoppingCartList){
+                //将sessionStorage中的商品信息保存到数据库中
+                shoppingCartMapper.insertShoppingCartDtoMessage(shoppingCartDto,user.getId());
+            }
+            //根据用户id查询购物车信息
+            shoppingCartList = shoppingCartMapper.findCartMessageByUserId(user.getId());
+            for (ShoppingCartDto shoppingCartDto:shoppingCartList){
+                Integer productId = shoppingCartDto.getProductId();
+                //根据商品id查询出商品的信息放到dto中
+                Product productMessageById = productMapper.findMessageById(productId);
+                shoppingCartDto.setProduct(productMessageById);
+                resultList.add(shoppingCartDto);
+            }
+            HttpSession httpSession = httpServletRequest.getSession();
+            httpSession.removeAttribute("shoppingCartSettleUnLogin");
+            modelAndView.addObject("shoppingCartMessageList",resultList);
+            modelAndView.setViewName("shoppingCart");
+            return modelAndView;
         }
-        modelAndView.addObject("shoppingCartMessageList",resultList);
+        if (shoppingCartList!=null && shoppingCartList.size()>0){
+            List<ShoppingCartDto> resultList = new ArrayList<>();
+            for (ShoppingCartDto shoppingCartDto:shoppingCartList){
+                Integer productId = shoppingCartDto.getProductId();
+                //根据商品id查询出商品的信息放到dto中
+                Product productMessageById = productMapper.findMessageById(productId);
+                shoppingCartDto.setProduct(productMessageById);
+                resultList.add(shoppingCartDto);
+            }
+            HttpSession httpSession = httpServletRequest.getSession();
+            httpSession.setAttribute("shoppingCartSettleUnLogin",shoppingCartList);
+            modelAndView.addObject("shoppingCartMessageList",resultList);
+        }else {
+            List<ShoppingCartDto> resultList = new ArrayList<>();
+            List<ShoppingCartDto> shoppingCartMessageList = shoppingCartMapper.findShoppingCartMessage();
+            for (ShoppingCartDto shoppingCartDto:shoppingCartMessageList){
+                Integer productId = shoppingCartDto.getProductId();
+                //根据商品id查询出商品的信息放到dto中
+                Product productMessageById = productMapper.findMessageById(productId);
+                shoppingCartDto.setProduct(productMessageById);
+                resultList.add(shoppingCartDto);
+            }
+            HttpSession httpSession = httpServletRequest.getSession();
+            httpSession.removeAttribute("shoppingCartSettleUnLogin");
+            modelAndView.addObject("shoppingCartMessageList",resultList);
+        }
         modelAndView.setViewName("shoppingCart");
         return modelAndView;
     }
@@ -56,10 +98,13 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     }
 
     @Override
-    public ModelAndView atOnceSettle(Integer[] shoppingCartArray,Double settlePrice) {
+    public ModelAndView atOnceSettle(HttpSession httpSession,Integer[] shoppingCartArray,Double settlePrice) {
         ModelAndView modelAndView = new ModelAndView();
-        String str = Arrays.stream(shoppingCartArray).map(Objects::toString).collect(Collectors.joining(","));
-        orderMapper.saveOrderData(str,settlePrice);
+        if (httpSession.getAttribute("successLogin")!=null){
+            String str = Arrays.stream(shoppingCartArray).map(Objects::toString).collect(Collectors.joining(","));
+            User user = (User) httpSession.getAttribute("successLogin");
+            orderMapper.saveOrderData(str,settlePrice,user.getId());
+        }
         modelAndView.setViewName("redirect:/personal/order/form");
         return modelAndView;
     }

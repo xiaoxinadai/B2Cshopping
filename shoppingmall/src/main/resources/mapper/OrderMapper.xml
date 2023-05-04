@@ -6,12 +6,13 @@
 <!--    <resultMap id="loginDao" type="com.example.model.User">-->
 <!--    </resultMap>-->
     <insert id="saveOrderData">
-        insert into t_order(product_cart_id,settle_price)
-        values (#{str},#{settlePrice})
+        insert into t_order(product_cart_id,settle_price,user_id)
+        values (#{str},#{settlePrice},#{userId})
     </insert>
 
     <select id="findAllMessage" resultType="orderDto">
         select *
         from t_order
+        where user_id = #{userId}
     </select>
 </mapper>

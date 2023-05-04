@@ -120,6 +120,10 @@
     /* 针对子元素的垂直方向对齐方式 */
     align-items: center;
 }
+.order__content{
+    height: 454px;
+    overflow-y: scroll;
+}
 
 
 

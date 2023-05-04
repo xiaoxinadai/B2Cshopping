@@ -6,9 +6,9 @@
     <resultMap id="loginDao" type="com.example.model.User">
     </resultMap>
     <insert id="saveRegisterUser" parameterType="user">
-        insert into t_user(username,password,phone)
+        insert into t_user(username,password,phone,create_time)
         values (
-            #{username},#{password},#{phone}
+            #{username},#{password},#{phone},#{createTime}
         )
     </insert>
 
@@ -19,7 +19,7 @@
     </select>
 
     <select id="queryByLoginUsername" resultType="user">
-        select username,password
+        select *
         from t_user
         where username = #{loginUsername}
     </select>

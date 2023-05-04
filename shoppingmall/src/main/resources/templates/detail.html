@@ -128,8 +128,8 @@
 <script src="/js/detail.js" type="text/javascript" charset="utf-8"></script>
 <script th:inline="javascript">
     let productId = [[${productMessageById.id}]];
-    let productPrice = [[${productMessageById.productPrice}]]
-    console.log(productId);
+    let productPrice = [[${productMessageById.productPrice}]];
+    let sessionUser = [[${session.successLogin}]];
 </script>
 </body>
 

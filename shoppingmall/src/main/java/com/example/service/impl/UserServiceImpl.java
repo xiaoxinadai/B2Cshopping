@@ -47,8 +47,13 @@ public class UserServiceImpl implements UserService {
             return modelAndView;
         }
         if (userList.size()>0 && loginPasswordMd5.equals(userList.get(0).getPassword())){
+            if (httpSession.getAttribute("shoppingCartSettleUnLogin") !=null){
+                httpSession.setAttribute("successLogin",userList.get(0));
+                modelAndView.setViewName("redirect:/shoppingCart/shoppingCart");
+                return modelAndView;
+            }
             modelAndView.setViewName("redirect:/homepage/view");
-            httpSession.setAttribute("successLogin",user);
+            httpSession.setAttribute("successLogin",userList.get(0));
             return modelAndView;
         }else {
             modelAndView.addObject("checkLoginError","请检测用户名和密码;");
@@ -67,7 +72,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public ModelAndView checkRegister(User user) {
         ModelAndView modelAndView = new ModelAndView();
-        System.out.println("-----------------------"+user.toString());
         //接收到注册信息，与数据库中的做对比看用户名是否重复
         if (user.getUsername().isEmpty()){
             modelAndView.addObject("registerError","输入信息有误");
@@ -88,7 +92,7 @@ public class UserServiceImpl implements UserService {
         LocalDateTime localDateTime = LocalDateTime.now();
         DateTimeFormatter dateTimeFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH");
         String createTime = localDateTime.format(dateTimeFormat);
-        user.setCreateTime(LocalDateTime.parse(createTime));
+        user.setCreateTime(LocalDateTime.parse(createTime,dateTimeFormat));
         Integer saveRegisterUserNum = userMapper.saveRegisterUser(user);
         if(saveRegisterUserNum>0){
             modelAndView.addObject("registerSign","1");

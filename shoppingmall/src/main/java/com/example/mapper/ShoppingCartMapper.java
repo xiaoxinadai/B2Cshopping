@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface ShoppingCartMapper {
     @Transactional
-    void savaMessageToCart(Integer productId,String productSpec,Integer amount,Double totalPrice);
+    void savaMessageToCart(Integer productId,String productSpec,Integer amount,Double totalPrice,Integer userId);
 
     List<ShoppingCartDto> findShoppingCartMessage();
     @Transactional
@@ -24,4 +24,10 @@ public interface ShoppingCartMapper {
 
     //根据购物车id查询该id下的所有信息
     ShoppingCart findAllMessageByCartId(Integer cartId);
+
+    @Transactional
+    void insertShoppingCartDtoMessage(ShoppingCartDto shoppingCartDto,Integer userId);
+
+    //根据用户id查询该用户的购物车商品
+    List<ShoppingCartDto> findCartMessageByUserId(Integer userId);
 }

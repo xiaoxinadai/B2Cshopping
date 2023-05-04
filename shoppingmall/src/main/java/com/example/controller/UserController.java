@@ -61,7 +61,6 @@ public class UserController {
 
     /**
      * 注册信息验证
-     * 1、用户名不可重复
      */
     @RequestMapping("/checkRegister")
     public ModelAndView checkRegister(User user, HttpSession httpSession, HttpServletRequest httpServletRequest) {

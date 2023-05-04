@@ -7,6 +7,8 @@ public class ShoppingCart {
 
     private Integer id;
 
+    private Integer userId;
+
     private Integer productId;
 
     private String productSpec;
