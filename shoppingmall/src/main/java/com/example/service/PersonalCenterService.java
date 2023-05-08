@@ -6,5 +6,5 @@ import javax.servlet.http.HttpSession;
 
 public interface PersonalCenterService {
 
-    ModelAndView toMyOrderFormView(HttpSession httpSession);
+    ModelAndView toMyOrderFormView(Integer pageNum,Integer pageSize,HttpSession httpSession);
 }

@@ -9,6 +9,8 @@ import com.example.model.Product;
 import com.example.model.ShoppingCart;
 import com.example.model.User;
 import com.example.service.PersonalCenterService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -30,8 +32,9 @@ public class PersonalCenterServiceImpl implements PersonalCenterService {
     }
 
     @Override
-    public ModelAndView toMyOrderFormView(HttpSession httpSession) {
+    public ModelAndView toMyOrderFormView(Integer pageNum,Integer pageSize,HttpSession httpSession) {
         ModelAndView modelAndView = new ModelAndView();
+        PageHelper.startPage(pageNum,pageSize);
         //到数据库中查询信息
         User user = (User) httpSession.getAttribute("successLogin");
         List<OrderDto> allMessageList = orderMapper.findAllMessage(user.getId());
@@ -52,7 +55,11 @@ public class PersonalCenterServiceImpl implements PersonalCenterService {
             }
             orderDto.setShoppingCartDtoList(shoppingCartDtoList);
         }
+        PageInfo pageInfo = new PageInfo(allMessageList);
         modelAndView.addObject("allMessageList",allMessageList);
+        modelAndView.addObject("pageTotal",pageInfo.getTotal());
+        modelAndView.addObject("pageNum",pageNum);
+        modelAndView.addObject("pageSize",pageSize);
         modelAndView.setViewName("personalCenter");
         return modelAndView;
     }

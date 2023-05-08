@@ -109,6 +109,10 @@
                         </div>
                     </div>
                 </div>
+                <!-- 分页内容-->
+                <div class="div__page">
+                    <div id="div__page"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -123,10 +127,17 @@
     </div>
 </footer>
 
-<script src="layui/layui.js"></script>
 <script type="text/javascript" src="/js/jquery/jquery-3.6.4.js"></script>
 <script src="/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" src="/js/personalCenter.js"></script>
+<script th:inline="javascript">
+    const allMessageList = [[${allMessageList}]];
+    let pageTotal = [[${pageTotal}]];
+    let pageNum = [[${pageNum}]];
+    let pageSize = [[${pageSize}]];
+    console.log("allMessageList----------------"+[[${allMessageList}]].length);
+    console.log("[[${pageTotal}]]--------------"+[[${pageTotal}]]);
+</script>
 </body>
 
 </html>

@@ -2,8 +2,7 @@ package com.example.controller;
 
 import com.example.service.PersonalCenterService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
@@ -18,8 +17,11 @@ public class PersonalCenterController {
         this.personalCenterService = personalCenterService;
     }
 
-    @GetMapping("/order/form")
-    public ModelAndView toMyOrderFormView(HttpSession httpSession){
-        return personalCenterService.toMyOrderFormView(httpSession);
+    @RequestMapping("/order/form")
+    public ModelAndView toMyOrderFormView(
+                                            @RequestParam(required = false,defaultValue = "1") Integer pageNum,
+                                            @RequestParam(required = false,defaultValue = "1") Integer pageSize,
+                                            HttpSession httpSession){
+        return personalCenterService.toMyOrderFormView(pageNum,pageSize,httpSession);
     }
 }

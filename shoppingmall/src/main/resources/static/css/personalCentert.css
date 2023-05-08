@@ -39,7 +39,7 @@
 .div-bottom-right-content-size{
     background-color: azure;
     width: 942px;
-    height: 553px;
+    height: 586px;
     border: 1px solid #e4e4e4;
     margin-left: 50px;
 }
@@ -64,7 +64,6 @@
 /* 设置中间内容的大小 */
 .mid-content-size{
     height: 637px;
-    margin-bottom: 57px;
 }
 /* 设置右边内容距离四周边框的距离 */
 .div-right-center-content{
@@ -123,6 +122,11 @@
 .order__content{
     height: 454px;
     overflow-y: scroll;
+}
+.div__page{
+    display: flex;
+    justify-content: center; // 水平居中
+    align-items: center; // 垂直居中
 }
 
 
