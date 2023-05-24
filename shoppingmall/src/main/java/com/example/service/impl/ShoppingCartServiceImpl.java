@@ -7,6 +7,8 @@ import com.example.mapper.ShoppingCartMapper;
 import com.example.model.Product;
 import com.example.model.User;
 import com.example.service.ShoppingCartService;
+import com.example.util.OrderNumberUtil;
+import com.example.util.OrderTimeUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -103,7 +105,9 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         if (httpSession.getAttribute("successLogin")!=null){
             String str = Arrays.stream(shoppingCartArray).map(Objects::toString).collect(Collectors.joining(","));
             User user = (User) httpSession.getAttribute("successLogin");
-            orderMapper.saveOrderData(str,settlePrice,user.getId());
+            String orderNumber = OrderNumberUtil.OrderNumber();
+            String orderTime = OrderTimeUtil.orderTime();
+            orderMapper.saveOrderData(str,settlePrice,user.getId(),orderNumber,orderTime);
         }
         modelAndView.setViewName("redirect:/personal/order/form");
         return modelAndView;

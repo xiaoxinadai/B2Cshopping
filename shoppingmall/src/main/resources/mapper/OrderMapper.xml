@@ -6,8 +6,8 @@
 <!--    <resultMap id="loginDao" type="com.example.model.User">-->
 <!--    </resultMap>-->
     <insert id="saveOrderData">
-        insert into t_order(product_cart_id,settle_price,user_id)
-        values (#{str},#{settlePrice},#{userId})
+        insert into t_order(product_cart_id,settle_price,user_id,order_number,order_time)
+        values (#{str},#{settlePrice},#{userId},#{orderNumber},#{orderTime})
     </insert>
 
     <select id="findAllMessage" resultType="orderDto">

@@ -10,4 +10,12 @@ $(function (){
     if (registerSign === "1"){
         layer.msg('注册成功！',{time:1000});
     };
+
+    //点击验证码实现刷新
+    $('.imgdistance').click(function (){
+        console.log("test----captcha")
+        $.get("/user/captcha",function (data){
+            $(this).html(data);
+        });
+    });
 })

@@ -10,4 +10,10 @@ public class Order {
     private String productCartId;
 
     private Double settlePrice;
+
+    private String orderNumber;
+
+    private String orderTime;
+
+    private String orderStatus; //
 }

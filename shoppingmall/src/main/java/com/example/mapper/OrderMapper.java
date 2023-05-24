@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface OrderMapper {
     @Transactional
-    void saveOrderData(String str,Double settlePrice,Integer userId);
+    void saveOrderData(String str,Double settlePrice,Integer userId,String orderNumber,String orderTime);
 
     List<OrderDto> findAllMessage(Integer userId);
 }

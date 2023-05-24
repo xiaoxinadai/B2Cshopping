@@ -5,7 +5,6 @@ import com.example.model.User;
 import com.example.service.UserService;
 import com.example.util.Md5Util;
 import com.wf.captcha.utils.CaptchaUtil;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
