@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.div-left-menu-flex{
+    display: flex;
+}
+.div-left-menu-size{
+    width: 200px;
+    height: 100vh;
+    background-color:#003366;
+}
+.div-left-menu-width{
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.span-left-menu-width{
+    color: #FFFFFF;
+    font-size: large;
+    display: inline;
+}
+.div-left-menu-product{
+    padding-top: 160px;
+}
+.div-left-menu-order{
+    padding-top: 40px;
+}
+.div-right-content-size{
+    padding: 50px 0 0 40px;
+}

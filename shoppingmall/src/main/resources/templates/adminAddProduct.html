@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="/layui/css/layui.css" rel="stylesheet">
+    <link href="/css/adminAddProduct.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/jquery/jquery-3.6.4.js"></script>
+    <script src="/layui/layui.js"></script>
+    <script src="/js/admin/adminAddProduct.js"></script>
+    <title>添加商品</title>
+</head>
+<body>
+    <div class="div-content-left">
+        <!--    上传商品图片-->
+        <div>
+            <div class="layui-upload">
+                <button type="button" class="layui-btn" id="test1">上传图片</button>
+                <div class="layui-upload-list">
+                    <img class="layui-upload-img" id="demo1">
+                    <p id="demoText"></p>
+                </div>
+                <div style="width: 95px;">
+                    <div class="layui-progress layui-progress-big" lay-showpercent="yes" lay-filter="demo">
+                        <div class="layui-progress-bar" lay-percent=""></div>
+                    </div>
+                </div>
+            </div>
+            <a name="list-progress"> </a>
+            <div style="margin-top: 10px;"></div>
+        </div>
+        <!--    填写商品名称-->
+        <div>
+            <span>商品名称</span><input class="productName" type="text">
+        </div>
+        <!--    填写单价-->
+        <div>
+            <span>单价</span><input class="productPrice" type="text">
+        </div>
+        <!--    填写商品描述-->
+        <div>
+            <span>商品描述</span><input class="productDescription" type="text">
+        </div>
+        <!--    选择类别-->
+        <div>
+            <select class="productCategory">
+                <option value="男士">男士</option>
+                <option value="女士">女士</option>
+                <option value="老人">老人</option>
+                <option value="儿童">儿童</option>
+            </select>
+        </div>
+        <div class="div-submit-add-product-padding">
+            <div class="div-submit-add-product div-all-mid-flex">
+                <div>提交</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

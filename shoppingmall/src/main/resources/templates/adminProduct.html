@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/adminProduct.css">
+    <script type="text/javascript" src="/js/jquery/jquery-3.6.4.js"></script>
+    <link href="/layui/css/layui.css" rel="stylesheet">
+    <script src="/layui/layui.js"></script>
+    <script src="/js/admin/adminProduct.js" type="text/javascript" charset="UTF-8"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div>
+            <div class="div-title-flex div-add-product">
+                <div class="div-border-size">添加商品</div>
+            </div>
+            <hr>
+            <div>
+                <!-- 商品列表表头 -->
+                <div class="div-flex">
+                    <div class="div-title-flex">
+                        <div class="div-title-padding">商品图片</div>
+                    </div>
+                    <div class="div-title-flex">
+                        <div class="div-title-padding">商品名称</div>
+                    </div>
+                    <div class="div-title-flex">
+                        <div class="div-title-padding">商品单价</div>
+                    </div>
+                    <div class="div-title-flex">
+                        <div class="div-title-padding">商品描述</div>
+                    </div>
+                    <div class="div-title-flex">
+                        <div class="div-title-padding">商品类别</div>
+                    </div>
+                    <div class="div-title-flex">
+                        <div class="div-title-handle">操作</div>
+                    </div>
+                </div>
+                <div>
+                    <!-- 商品列表内容 -->
+                    <div class="div-flex" th:each="product:${allProductList}">
+                        <input class="productId" type="hidden" th:value="${product.id}">
+                        <div class="div-img-size">
+                            <img class="div-img-size-auto" th:src="${product.imgLocation}" alt="图片不见了">
+                        </div>
+                        <div class="div-content-padding">
+                            <div>
+                                <span th:text="${product.productName}"></span>
+                            </div>
+                        </div>
+                        <div class="div-content-padding">
+                            <div>
+                                <span th:text="${product.productPrice}"></span>
+                            </div>
+                        </div>
+                        <div class="div-content-padding">
+                            <div>
+                                <span th:text="${product.productDescription}"></span>
+                            </div>
+                        </div>
+                        <div class="div-content-padding">
+                            <div>
+                                <span th:text="${product.productCategory}"></span>
+                            </div>
+                        </div>
+                        <div class="div-content-padding div-flex">
+                            <div class="div-edit">
+                                <span>编辑</span>
+                            </div>
+                            <div class="div-delete">
+                                <span>删除</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

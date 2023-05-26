@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/css/adminlogin.css">
+    <script src="/layui/layui.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery-3.6.4.js"></script>
+    <script type="text/javascript" src="/js/admin/adminLogin.js"></script>
+    <title>登录</title>
+</head>
+<body>
+    <div class="backgroundpic">
+        <div class="toplogin">
+            <form method="post" action="/admin/checkLogin">
+                <div>
+                    <!-- 输入框div -->
+                    <div class="box">
+                        <p class="word">管理员登陆</p>
+                        <div>
+                            <input class="inputout topdistance" type="text" id="username" name="username" placeholder="请输入用户名"><br>
+                        </div>
+                        <div>
+                            <input class="inputout topandbottomdistance" type="password" id="password" name="password" placeholder="请输入密码"><br>
+                        </div>
+                        
+                    </div>
+                    <div class="divbuttonlogin">
+                        <button class="buttonlogin">登录</button>
+                    </div>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</body>
+<script th:inline="javascript">
+    let errorMessage = [[${error}]];
+    console.log("errorMessage----------------"+[[${errorMessage}]]);
+</script>
+</html>

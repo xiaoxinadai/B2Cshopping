@@ -19,4 +19,8 @@ public interface ProductMapper {
     List<Product> findOldManProduct();
 
     List<Product> findChildProduct();
+
+    int deleteProduct(Integer productId);
+
+    int addProduct(Product product);
 }

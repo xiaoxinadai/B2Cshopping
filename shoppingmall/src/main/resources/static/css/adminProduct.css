@@ -1,0 +1,54 @@
+.div-flex{
+    display: flex;
+}
+.div-title-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.div-title-padding{
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 80px;
+    height: 30px;
+}
+.div-title-handle{
+    padding-left: 60px;
+    padding-right: 60px;
+    width: 160px;
+    height: 30px;
+}
+.div-img-size{
+    padding-left: 30px;
+    padding-right: 50px;
+    width: 100px;
+    height: 100px;
+}
+.div-content-padding{
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 80px;
+}
+.div-edit{
+    padding-right: 5px;
+    cursor: pointer;
+}
+.div-delete{
+    cursor: pointer;
+    color: #FF6666;
+}
+.div-add-product{
+    padding-left: 30px;
+    padding-top: 25px;
+    width: 80px;
+    height: 40px;
+}
+.div-border-size{
+    cursor: pointer;
+    border: 1px solid black;
+}
+.div-img-size-auto{
+    width: 100px;
+    height: 100px;
+}

@@ -15,5 +15,5 @@ public class Order {
 
     private String orderTime;
 
-    private String orderStatus; //
+    private String orderStatus; //待支付；待收货；已完成；已取消
 }

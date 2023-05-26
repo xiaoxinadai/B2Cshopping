@@ -40,4 +40,14 @@
         from t_product
         where product_category = '儿童'
     </select>
+
+    <delete id="deleteProduct">
+        delete from t_product
+        where id = #{productId}
+    </delete>
+
+    <insert id="addProduct" parameterType="product">
+        insert into t_product(product_name,product_price,product_description,img_location,product_category)
+        values (#{productName},#{productPrice},#{productDescription},#{imgLocation},#{productCategory})
+    </insert>
 </mapper>
