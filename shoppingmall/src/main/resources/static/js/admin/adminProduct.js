@@ -7,16 +7,41 @@ $(document).ready(function (){
             {
                 "productId":productId
             }
-        )
+        );
     });
+
+    let popupsOpen;
 
     $('.div-border-size').click(function (){
         //页面层
-        layer.open({
+        popupsOpen = layer.open({
             type: 2,
             skin: 'layui-layer-rim', //加上边框
             area: ['420px', '380px'], //宽高
             content: 'http://localhost:8080/adminProduct/addProductView'
+        });
+    });
+
+
+
+    $('.div-edit').click(function (){
+        let productId = $(this).parent().siblings('.productId').val();
+        console.log("productId-------------------------"+productId);
+
+        layer.open({
+            type: 2,
+            skin: 'layui-layer-rim', //加上边框
+            area: ['420px', '380px'], //宽高
+            content: 'http://localhost:8080/adminProduct/addProductView?productId='+productId
+        });
+    });
+
+    layui.use('flow', function(){
+        var flow = layui.flow;
+        //按屏加载图片
+        flow.lazyimg({
+            elem: '#LAY_demo3 img'
+            ,scrollElem: '#LAY_demo3' //一般不用设置，此处只是演示需要。
         });
     });
 

@@ -1,5 +1,8 @@
 $(document).ready(function (){
     let imgSrc; //图片路径
+    if (imgClose == 1){
+        imgSrc = productImgLocation;
+    };
     layui.use('upload', function () {
         var upload = layui.upload;
 
@@ -26,17 +29,46 @@ $(document).ready(function (){
         let productPrice = $('.productPrice').val();
         let productDescription = $('.productDescription').val();
         let productCategory = $('.productCategory').val();
-        postDirect(
-            '/adminProduct/addProductHandle',
-            {
-                "productName":productName,
-                "productPrice":Number(productPrice),
-                "productDescription":productDescription,
-                "productCategory":productCategory,
-                "imgLocation":imgSrc
+        $.ajax({
+            url: '/adminProduct/addProductHandle',
+            type: "POST",
+            data: {
+                // 在这里添加你要发送的数据
+                id: productId,
+                productName: productName,
+                productPrice:Number(productPrice),
+                productDescription: productDescription,
+                productCategory: productCategory,
+                imgLocation:imgSrc
+            },
+            success: function (res) {
+                // 在这里处理响应数据
+                if (res.data.closePopups === 1){
+                    console.log("res.data.closePopups--------"+res.data.closePopups);
+                    setTimeout(()=>{
+                        parent.location.href="http://localhost:8080/admin/adminProduct";
+                    },500);
+                }
+                // setTimeout(()=>{
+                //     parent.location.href="http://localhost:8080/admin/adminProduct";
+                // },1000);
+                console.log('成功');
+            },
+            error: function () {
+                // 在这里处理错误
+                console.log('失败');
             }
-        )
+        });
     });
+
+    if (imgClose == 1){
+        $('.productCategory').val(productCategory);
+        console.log("------------------------------2");
+        //添加赋值
+        $('.productName').val(productName);
+        $('.productPrice').val(productPrice);
+        $('.productDescription').val(productDescription)
+    };
 
     function postDirect(url, params) {
         var temp = document.createElement("form"); //创建form表单

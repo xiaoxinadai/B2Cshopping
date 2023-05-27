@@ -32,6 +32,13 @@ public class AdminController {
         return adminService.checkAdminLogin(admin);
     }
 
+    @RequestMapping("/adminIndex")
+    public ModelAndView toAdminIndex(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("adminIndex");
+        return modelAndView;
+    }
+
     @RequestMapping("/adminProduct")
     public ModelAndView toAdminProduct(){
         return adminService.toAdminProduct();

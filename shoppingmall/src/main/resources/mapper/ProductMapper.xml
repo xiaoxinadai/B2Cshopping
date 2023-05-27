@@ -50,4 +50,11 @@
         insert into t_product(product_name,product_price,product_description,img_location,product_category)
         values (#{productName},#{productPrice},#{productDescription},#{imgLocation},#{productCategory})
     </insert>
+
+    <update id="updateProduct" parameterType="product">
+        update t_product
+        set product_name = #{productName},product_price = #{productPrice},product_description = #{productDescription},
+            img_location = #{imgLocation},product_category = #{productCategory}
+        where id = #{id}
+    </update>
 </mapper>

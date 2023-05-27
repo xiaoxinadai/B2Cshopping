@@ -23,4 +23,6 @@ public interface ProductMapper {
     int deleteProduct(Integer productId);
 
     int addProduct(Product product);
+
+    int updateProduct(Product product);
 }

@@ -13,7 +13,7 @@
 <body>
     <div class="div-content-left">
         <!--    上传商品图片-->
-        <div>
+        <div class="div-img-upload">
             <div class="layui-upload">
                 <button type="button" class="layui-btn" id="test1">上传图片</button>
                 <div class="layui-upload-list">
@@ -29,32 +29,54 @@
             <a name="list-progress"> </a>
             <div style="margin-top: 10px;"></div>
         </div>
-        <!--    填写商品名称-->
         <div>
-            <span>商品名称</span><input class="productName" type="text">
-        </div>
-        <!--    填写单价-->
-        <div>
-            <span>单价</span><input class="productPrice" type="text">
-        </div>
-        <!--    填写商品描述-->
-        <div>
-            <span>商品描述</span><input class="productDescription" type="text">
-        </div>
-        <!--    选择类别-->
-        <div>
-            <select class="productCategory">
-                <option value="男士">男士</option>
-                <option value="女士">女士</option>
-                <option value="老人">老人</option>
-                <option value="儿童">儿童</option>
-            </select>
-        </div>
-        <div class="div-submit-add-product-padding">
-            <div class="div-submit-add-product div-all-mid-flex">
-                <div>提交</div>
+            <input class="productId" type="hidden">
+            <!--    填写商品名称-->
+            <div>
+                <span>商品名称</span><input class="productName" type="text">
+            </div>
+            <!--    填写单价-->
+            <div>
+                <span>单价</span><input class="productPrice" type="text">
+            </div>
+            <!--    填写商品描述-->
+            <div>
+                <span>商品描述</span><input class="productDescription" type="text">
+            </div>
+            <!--    选择类别-->
+            <div>
+                <select class="productCategory">
+                    <option value="男士">男士</option>
+                    <option value="女士">女士</option>
+                    <option value="老人">老人</option>
+                    <option value="儿童">儿童</option>
+                </select>
+            </div>
+            <div class="div-submit-add-product-padding">
+                <div class="div-submit-add-product div-all-mid-flex">
+                    <div>提交</div>
+                </div>
             </div>
         </div>
-    </div>
+        </div>
 </body>
+<script th:inline="javascript">
+    let imgClose = [[${imgClose}]];
+    let productId;
+    let productName;
+    let productPrice;
+    let productDescription;
+    let productCategory;
+    let productImgLocation;
+    if (imgClose == 1){
+        productId = [[${messageById.id}]];
+        productName = [[${messageById.productName}]];
+        productPrice = [[${messageById.productPrice}]];
+        productDescription = [[${messageById.productDescription}]];
+        productCategory = [[${messageById.productCategory}]];
+        productImgLocation = [[${messageById.imgLocation}]]
+    }
+    console.log("imgClose-----------------------"+imgClose);
+    console.log("productCategory-----------------------"+productCategory);
+</script>
 </html>

@@ -38,7 +38,7 @@ public class AdminServiceImpl implements AdminService {
         String password1 = admin1.getPassword();
         if (password1!=null && password1.equals(password)){
             //登录成功
-            modelAndView.setViewName("adminIndex");
+            modelAndView.setViewName("redirect:/admin/adminIndex");
         }else {
             modelAndView.addObject("error",1);
             modelAndView.setViewName("adminLogin");

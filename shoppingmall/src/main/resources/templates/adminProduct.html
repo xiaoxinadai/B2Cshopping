@@ -44,7 +44,9 @@
                     <div class="div-flex" th:each="product:${allProductList}">
                         <input class="productId" type="hidden" th:value="${product.id}">
                         <div class="div-img-size">
-                            <img class="div-img-size-auto" th:src="${product.imgLocation}" alt="图片不见了">
+                            <div class="site-demo-flow" id="LAY_demo3">
+                                <img class="div-img-size-auto" th:src="${product.imgLocation}" alt="图片不见了">
+                            </div>
                         </div>
                         <div class="div-content-padding">
                             <div>
