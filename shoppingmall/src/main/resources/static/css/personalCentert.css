@@ -128,7 +128,13 @@
     justify-content: center; // 水平居中
     align-items: center; // 垂直居中
 }
-
+.div-but-order-location{
+    display: flex;
+    align-items: center;
+}
+.div-but-order-style{
+    cursor: pointer;
+}
 
 
 

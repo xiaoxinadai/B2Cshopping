@@ -15,4 +15,10 @@
         from t_order
         where user_id = #{userId}
     </select>
+
+    <update id="editOrderStatus">
+        update t_order
+        set order_status = #{orderStatus}
+        where id = #{orderId}
+    </update>
 </mapper>

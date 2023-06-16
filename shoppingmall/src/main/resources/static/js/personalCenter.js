@@ -32,6 +32,50 @@ $(document).ready(function () {
         });
     });
 
+    $('.div-but-order-style').click(function (){
+        let divButOrderStyleValue = $(this).find('span').text();
+        let orderId = $(this).parent().parent().siblings('.order__id').val();
+        console.log("divButOrderStyleValue----------"+divButOrderStyleValue);
+        let orderStatus;
+        if (divButOrderStyleValue == '立即支付'){
+            orderStatus = '待收货';
+        };
+        if (divButOrderStyleValue == '确认收货'){
+            orderStatus = '已完成';
+        }
+        if (divButOrderStyleValue != '交易完成'){
+            $.ajax({
+                url: '/personal/editStatus',
+                type: "POST",
+                data: {
+                    // 在这里添加你要发送的数据
+                    orderId: orderId,
+                    orderStatus:orderStatus
+                },
+                success: function (res) {
+                    // 在这里处理响应数据
+                    if (res.data.success === 1){
+                        // console.log("res.data.success--------"+res.data.success);
+                        if (orderStatus == '待收货'){
+                            layer.msg('支付成功')
+                        }
+                        setTimeout(()=>{
+                            location.reload();
+                        },1000);
+                    }
+                    // setTimeout(()=>{
+                    //     parent.location.href="http://localhost:8080/admin/adminProduct";
+                    // },1000);
+                    // console.log('成功');
+                },
+                error: function () {
+                    // 在这里处理错误
+                    // console.log('失败');
+                }
+            });
+        }
+    });
+
 
     function postDirect(url, params) {
         var temp = document.createElement("form"); //创建form表单

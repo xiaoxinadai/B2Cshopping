@@ -12,4 +12,6 @@ public interface OrderMapper {
     void saveOrderData(String str,Double settlePrice,Integer userId,String orderNumber,String orderTime);
 
     List<OrderDto> findAllMessage(Integer userId);
+
+    int editOrderStatus(Integer orderId,String orderStatus);
 }

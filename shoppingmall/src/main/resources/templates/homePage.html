@@ -13,22 +13,22 @@
 <body>
 <ul class="layui-nav layui-bg-cyan">
     <li class="layui-nav-item"><a href="">飞跃商时</a></li>
-    <li class="layui-nav-item"><a href="">商品</a></li>
-    <li class="layui-nav-item"><a href="">购物车</a></li>
-    <li class="layui-nav-item">
-        <a href="javascript:;">解决方案</a>
-        <dl class="layui-nav-child">
-            <dd><a href="">移动模块</a></dd>
-            <dd><a href="">后台模版</a></dd>
-            <dd><a href="">电商平台</a></dd>
-        </dl>
-    </li>
-    <li class="layui-nav-item"><a href="">帮助</a></li>
+<!--    <li class="layui-nav-item"><a href="">商品</a></li>-->
+<!--    <li class="layui-nav-item"><a href="">购物车</a></li>-->
+<!--    <li class="layui-nav-item">-->
+<!--        <a href="javascript:;">解决方案</a>-->
+<!--        <dl class="layui-nav-child">-->
+<!--            <dd><a href="">移动模块</a></dd>-->
+<!--            <dd><a href="">后台模版</a></dd>-->
+<!--            <dd><a href="">电商平台</a></dd>-->
+<!--        </dl>-->
+<!--    </li>-->
+<!--    <li class="layui-nav-item"><a href="">帮助</a></li>-->
     <li class="layui-nav-item liright" lay-unselect="">
-        <a href="javascript:;"><img src="" class="layui-nav-img"></a>
+        <a href="javascript:;"><img src="/images/headSculpture/default.jpg" class="layui-nav-img"></a>
         <dl class="layui-nav-child">
-            <dd><a href="javascript:;">个人中心</a></dd>
-            <dd><a href="javascript:;">购物车</a></dd>
+            <dd><a href="http://localhost:8080/personal/order/form">个人中心</a></dd>
+            <dd><a href="http://localhost:8080/shoppingCart/shoppingCart">购物车</a></dd>
             <hr>
             <dd style="text-align: center;"><a href="http://localhost:8080/user/logout">退出</a></dd>
         </dl>
@@ -128,7 +128,7 @@
             , width: '100%' //设置容器宽度
             , arrow: 'always' //始终显示箭头
             , autoplay: true //自动滚动，鼠标移入会暂停、移出重新恢复
-            , interval: 2000 //自动切换的时间间隔，单位：ms（毫秒），不能低于 800
+            , interval: 20000 //自动切换的时间间隔，单位：ms（毫秒），不能低于 800
             //,anim: 'updown' //切换动画方式
         });
     });

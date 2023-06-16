@@ -14,18 +14,18 @@
 <body>
 <!-- 公共顶部导航栏 -->
 <ul class="layui-nav layui-bg-cyan">
-    <li class="layui-nav-item"><a href="">飞跃商时</a></li>
-    <li class="layui-nav-item"><a href="">商品</a></li>
-    <li class="layui-nav-item"><a href="">购物车</a></li>
-    <li class="layui-nav-item">
-        <a href="javascript:;">解决方案</a>
-        <dl class="layui-nav-child">
-            <dd><a href="">移动模块</a></dd>
-            <dd><a href="">后台模版</a></dd>
-            <dd><a href="">电商平台</a></dd>
-        </dl>
-    </li>
-    <li class="layui-nav-item"><a href="">帮助</a></li>
+    <li class="layui-nav-item"><a href="http://localhost:8080/homepage/view">飞跃商时</a></li>
+<!--    <li class="layui-nav-item"><a href="">商品</a></li>-->
+<!--    <li class="layui-nav-item"><a href="">购物车</a></li>-->
+<!--    <li class="layui-nav-item">-->
+<!--        <a href="javascript:;">解决方案</a>-->
+<!--        <dl class="layui-nav-child">-->
+<!--            <dd><a href="">移动模块</a></dd>-->
+<!--            <dd><a href="">后台模版</a></dd>-->
+<!--            <dd><a href="">电商平台</a></dd>-->
+<!--        </dl>-->
+<!--    </li>-->
+<!--    <li class="layui-nav-item"><a href="">帮助</a></li>-->
     <li class="layui-nav-item liright" lay-unselect="">
         <a href="javascript:;"><img src="/images/headSculpture/default.jpg" class="layui-nav-img"></a>
         <dl class="layui-nav-child">
@@ -61,9 +61,9 @@
             <!-- 下方标题内容 -->
             <hr class="hr-left-title">
             <div>
-                <div class="div-content-mid div-span-title-bottom-distance">
-                    <span>个人信息</span>
-                </div>
+<!--                <div class="div-content-mid div-span-title-bottom-distance">-->
+<!--                    <span>个人信息</span>-->
+<!--                </div>-->
                 <div class="div-content-mid div-span-title-bottom-distance">
                     <span>我的订单</span>
                 </div>
@@ -76,20 +76,21 @@
                 <div>
                     <span class="span-myorder-title-style">我的订单</span>
                 </div>
-                <div class="div-chose-order-top-bottom-distance">
-                    <span>全部订单</span>
-                    <span class="span-margin-left-distance">待支付</span>
-                    <span class="span-margin-left-distance">待收货</span>
-                    <span class="span-margin-left-distance">已关闭</span>
-                </div>
+<!--                <div class="div-chose-order-top-bottom-distance">-->
+<!--                    <span>全部订单</span>-->
+<!--                    <span class="span-margin-left-distance">待支付</span>-->
+<!--                    <span class="span-margin-left-distance">待收货</span>-->
+<!--                    <span class="span-margin-left-distance">已关闭</span>-->
+<!--                </div>-->
 
                 <!-- 订单内容 -->
                 <div class="order__content">
                     <div class="div-order-message-size" th:each="orderDto:${allMessageList}">
-                        <div>订单状态（待支付、待收货、已收货、已取消）</div>
+                        <input class="order__id" type="hidden" th:value="${orderDto.id}">
+                        <div th:text="${orderDto.orderStatus}"></div>
                         <div>
                             <span th:text="${orderDto.orderTime}"></span>
-                            <span>收件人</span>
+<!--                            <span>收件人</span>-->
                             <span th:text="'订单号：'+${orderDto.orderNumber}"></span>
                         </div>
                         <hr>
@@ -103,8 +104,16 @@
                                     <p th:text="'￥'+${shoppingCartDto.product.productPrice}+'&nbsp&nbsp*&nbsp&nbsp'+${shoppingCartDto.productAmount}"></p>
                                 </div>
                             </div>
-                            <div>
-                                <span>立即支付/确认收货/交易完成</span>
+                            <div class="div-but-order-location">
+                                <div class="div-but-order-style" th:if="${orderDto.orderStatus == '待支付'}">
+                                    <span>立即支付</span>
+                                </div>
+                                <div class="div-but-order-style" th:if="${orderDto.orderStatus == '待收货'}">
+                                    <span>确认收货</span>
+                                </div>
+                                <div class="div-but-order-style" th:if="${orderDto.orderStatus == '已完成'}">
+                                    <span>交易完成</span>
+                                </div>
                             </div>
                         </div>
                     </div>

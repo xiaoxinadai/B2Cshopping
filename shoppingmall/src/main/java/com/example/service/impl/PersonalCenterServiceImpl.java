@@ -11,12 +11,16 @@ import com.example.model.User;
 import com.example.service.PersonalCenterService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class PersonalCenterServiceImpl implements PersonalCenterService {
@@ -62,5 +66,15 @@ public class PersonalCenterServiceImpl implements PersonalCenterService {
         modelAndView.addObject("pageSize",pageSize);
         modelAndView.setViewName("personalCenter");
         return modelAndView;
+    }
+
+    @Override
+    public ResponseEntity<Map<String, Object>> editStatus(Integer orderId,String orderStatus) {
+        orderMapper.editOrderStatus(orderId,orderStatus);
+        Map<String,Object> result = new HashMap<>();
+        Map<String,Object> data = new HashMap<>();
+        data.put("success",1);
+        result.put("data",data);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }
